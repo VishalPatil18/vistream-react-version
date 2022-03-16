@@ -1,13 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://vispaui-postdev-deploy.netlify.app/css/main.css");
+/*
+***************** GLOBAL STYLING *****************
+*/
+
+:root {
+  --primary-theme-color: #001219;
+  --secondary-theme-color: white;
+  --secondary-theme-background: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+html {
+  color: var(--dark);
+  font-family: "Poppins", sans-serif;
+  min-height: 100%;
+}
+
+body {
+  align-items: center;
+  background-color: var(--secondary-theme-color);
+  color: var(--primary-theme-color);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+.dark-mode {
+  --primary-theme-color: white;
+  --secondary-theme-color: #001219;
+  --secondary-theme-background: var(--dark);
 }
