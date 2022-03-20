@@ -1,0 +1,44 @@
+import { videos } from "../../backend/db/videos";
+import { MainVideoCard } from "../MainVideoCard/MainVideoCard";
+import styles from "./FeaturedVideos.module.css";
+
+const FeaturedVideos = () => {
+  // NOTE: Just for rendering purpose. Will remove it when using proper database
+  const videoList = [
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+    ...videos,
+  ];
+
+  return (
+    <section>
+      <div className={styles.headingWrapper}>
+        <h2 className={styles.heading}>Featured Videos</h2>
+        <button className={`button btn-plain btn-primary ${styles.seeAllBtn}`}>
+          See all
+        </button>
+      </div>
+      <div className={styles.featuredVideos}>
+        {videoList.map((video) => (
+          <MainVideoCard video={video} />
+        ))}
+      </div>
+      <footer className={styles.footer}>
+        <button
+          className={`button btn-solid-primary ${styles.seeAllVideosBtn}`}
+        >
+          See all Videos
+        </button>
+      </footer>
+    </section>
+  );
+};
+
+export { FeaturedVideos };

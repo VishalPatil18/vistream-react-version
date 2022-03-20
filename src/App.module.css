@@ -1,0 +1,24 @@
+.app {
+  align-items: flex-start;
+  display: flex;
+  height: 100%;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+.mainBody {
+  background-color: var(--dark);
+  height: 100%;
+  overflow-x: hidden;
+  padding: var(--space-md) 0 0;
+  width: 100%;
+}
+
+.mainContent {
+  min-height: calc(100vh - 340px);
+}
+
+/* NOTE: Just for development purpose, will remove it in production code */
+iframe {
+  display: none;
+}

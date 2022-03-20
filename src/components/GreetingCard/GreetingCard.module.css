@@ -1,0 +1,22 @@
+.card {
+  -webkit-backdrop-filter: blur(0px);
+  align-items: center;
+  backdrop-filter: blur(0px);
+  background-color: var(--danger);
+  border-radius: var(--br-sm);
+  box-shadow: 0 2px 20px 0 rgba(255, 5, 47, 0.8);
+  color: white;
+  display: flex;
+  font-size: var(--fs-sm-2);
+  justify-content: space-between;
+  margin: 0 var(--space-md) var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+}
+
+.profileBadge {
+  background-color: white;
+  box-shadow: var(--bs-sm);
+  color: var(--secondary-theme-color);
+  display: flex;
+  gap: var(--space-xxs);
+}
