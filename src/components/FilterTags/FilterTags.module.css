@@ -1,9 +1,15 @@
 .filtersWrapper {
+  -ms-overflow-style: none;
   display: flex;
   gap: var(--space-xs);
   margin: var(--space-sm) 0;
   overflow-x: scroll;
   padding: 0 var(--space-md);
+  scrollbar-width: none;
+}
+
+.filtersWrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .chip {

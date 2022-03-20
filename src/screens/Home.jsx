@@ -9,7 +9,7 @@ import {
 
 const Home = ({ cname }) => {
   return (
-    <main>
+    <main className={cname}>
       <FilterTags />
       <CategoryCarousel />
       <PlaylistCarousel />

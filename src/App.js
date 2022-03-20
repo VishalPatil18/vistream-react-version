@@ -10,7 +10,7 @@ function App() {
       <section className={styles.mainBody}>
         <GreetingCard />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home cname={styles.mainContent} />} />
         </Routes>
         <Footer />
       </section>

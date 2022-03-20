@@ -14,6 +14,10 @@
   width: 100%;
 }
 
+.mainContent {
+  min-height: calc(100vh - 340px);
+}
+
 /* NOTE: Just for development purpose, will remove it in production code */
 iframe {
   display: none;
