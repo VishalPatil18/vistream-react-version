@@ -1,0 +1,13 @@
+.tab {
+  color: white;
+  margin: var(--space-xxxs) auto;
+  width: 100%;
+}
+
+.tab:hover {
+  background-color: var(--primary);
+}
+
+.active {
+  background-color: var(--primary);
+}

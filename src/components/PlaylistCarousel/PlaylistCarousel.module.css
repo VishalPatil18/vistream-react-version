@@ -1,0 +1,30 @@
+.headingWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  font-size: var(--fs-sm-2);
+  font-weight: var(--fw-2);
+  padding: 0 var(--space-md);
+}
+
+.carousel {
+  -ms-overflow-style: none;
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  overflow-x: scroll;
+  padding: var(--space-xs) var(--space-md);
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.seeAllBtn:hover {
+  background-color: initial;
+}

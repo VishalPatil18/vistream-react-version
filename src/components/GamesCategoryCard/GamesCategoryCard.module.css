@@ -1,0 +1,68 @@
+.card {
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  border-radius: var(--br-lg);
+  box-shadow: 0 2px 5px 0 rgba(10, 178, 255, 0.6);
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 200px;
+  position: relative;
+  transition: box-shadow 0.2s ease-in;
+  width: 300px;
+}
+
+.card:hover {
+  box-shadow: 0 5px 20px 0 rgba(10, 178, 255, 0.8);
+}
+
+.image {
+  border-radius: var(--br-lg);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.body {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom-left-radius: var(--br-lg);
+  border-bottom-right-radius: var(--br-lg);
+  bottom: 0;
+  cursor: initial;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: var(--space-xs) var(--space-sm);
+  position: absolute;
+  width: 100%;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.likeButton {
+  align-items: center;
+  background-color: initial;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-lg-1);
+  justify-content: center;
+  margin: 0 var(--space-xxs);
+  transition: color 0.2s ease-in;
+}
+
+.likeButton:hover {
+  color: var(--danger);
+}
+
+.likeButtonCaption {
+  font-size: var(--fs-xs-1);
+}

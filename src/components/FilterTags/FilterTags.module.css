@@ -1,0 +1,16 @@
+.filtersWrapper {
+  display: flex;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0;
+  overflow-x: scroll;
+  padding: 0 var(--space-md);
+}
+
+.chip {
+  cursor: pointer;
+  flex-shrink: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

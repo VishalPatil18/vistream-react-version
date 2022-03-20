@@ -1,0 +1,42 @@
+.drawer {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  padding: var(--space-sm);
+  width: 225px;
+}
+
+.drawerHeader {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: var(--space-xs);
+  width: 100%;
+}
+
+.brandName {
+  font-size: var(--fs-lg-2);
+  margin-left: var(--space-xxs);
+}
+
+.primaryFont {
+  color: var(--primary);
+  font-weight: var(--fw-3);
+}
+
+.createPlaylistBtn {
+  background-color: initial;
+  color: var(--primary);
+  display: flex;
+  gap: var(--space-xxs);
+  justify-content: center;
+  margin-top: auto;
+}
+
+.createPlaylistBtn:hover {
+  background-color: var(--primary);
+  color: white;
+}

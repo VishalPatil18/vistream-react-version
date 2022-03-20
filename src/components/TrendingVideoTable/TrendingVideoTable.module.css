@@ -1,0 +1,23 @@
+.headingWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading {
+  font-size: var(--fs-sm-2);
+  font-weight: var(--fw-2);
+  padding: 0 var(--space-md);
+}
+
+.seeAllBtn:hover {
+  background-color: initial;
+}
+
+.table {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-bottom: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+}

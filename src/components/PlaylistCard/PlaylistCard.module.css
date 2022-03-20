@@ -1,0 +1,54 @@
+.card {
+  border-radius: var(--br-lg);
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 200px;
+  position: relative;
+  transition: box-shadow 0.2s ease-in;
+  width: 300px;
+}
+
+.image {
+  border-radius: var(--br-lg);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.body {
+  align-items: center;
+  background-color: white;
+  bottom: 0;
+  cursor: initial;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: var(--space-xs) var(--space-sm);
+  position: absolute;
+  width: 100%;
+}
+
+.title {
+  color: var(--dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.videosWrapper {
+  align-items: center;
+  color: var(--dark);
+  display: flex;
+  font-size: var(--fs-lg-1);
+  gap: var(--space-xxs);
+  justify-content: center;
+  margin: 0 var(--space-xxs);
+  white-space: nowrap;
+}
+
+.videosCaption {
+  font-size: var(--fs-xs-1);
+  text-transform: uppercase;
+}
