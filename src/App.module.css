@@ -12,10 +12,12 @@
   overflow-x: hidden;
   padding: var(--space-md) 0 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .mainContent {
-  min-height: calc(100vh - 340px);
+  height: fit-content;
 }
 
 /* NOTE: Just for development purpose, will remove it in production code */

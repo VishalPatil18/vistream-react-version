@@ -21,13 +21,3 @@
   margin-bottom: var(--space-md);
   padding: var(--space-xs) var(--space-md);
 }
-
-.footer {
-  display: flex;
-  margin-bottom: var(--space-md);
-  width: 100%;
-}
-
-.seeAllVideosBtn {
-  margin: auto;
-}

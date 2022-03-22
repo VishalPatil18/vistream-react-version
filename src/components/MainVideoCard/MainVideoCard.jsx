@@ -17,7 +17,7 @@ const MainVideoCard = ({ video }) => {
               <Icon icon={icons.bookmark} />
             </button>
             <button className={styles.button}>
-              <Icon icon={icons.share} />
+              <Icon icon={icons.addToPlaylist} />
             </button>
           </div>
         </div>

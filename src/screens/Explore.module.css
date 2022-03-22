@@ -1,0 +1,92 @@
+.header {
+  align-items: center;
+  display: flex;
+  gap: var(--space-xs);
+  margin: 0 0 var(--space-sm);
+  padding: 0 var(--space-md);
+}
+
+.filter {
+  font-size: var(--fs-sm-1);
+}
+
+.filterBtn {
+  align-items: center;
+  background-color: initial;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--fs-lg-1);
+  gap: var(--space-xxxs);
+  padding: var(--space-xs) var(--space-sm);
+  position: relative;
+}
+
+.filterSubmenu {
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: var(--br-md);
+  color: white;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-3);
+  gap: var(--space-xs);
+  height: fit-content;
+  max-width: 600px;
+  padding: var(--space-sm);
+  position: fixed;
+  text-align: start;
+  top: 140px;
+  width: 80%;
+  z-index: 1;
+}
+
+.filterHeading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterHeadingText {
+  font-size: var(--fs-md-2);
+  font-weight: var(--fw-6);
+}
+
+.filterBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterBtn:hover > .filterSubmenu {
+  display: flex;
+}
+
+.filterTypeHeading {
+  border-bottom: 1.5px solid white;
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-4);
+  margin-bottom: var(--space-xxs);
+  padding-bottom: var(--space-xxs);
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterByBtn {
+  background-color: initial;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: var(--fs-xs-1);
+  margin-bottom: var(--space-xxxs);
+  text-align: start;
+  transition: color 0.2s ease-in;
+}
+
+.filterByBtn:hover {
+  color: var(--primary);
+}

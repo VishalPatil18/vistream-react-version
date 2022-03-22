@@ -1,0 +1,63 @@
+.sidebar {
+  align-items: flex-start;
+  background-color: var(--secondary-theme-color);
+  border-radius: var(--br-sm);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-size: var(--fs-xs-2);
+  justify-content: flex-start;
+  min-width: 250px;
+  overflow-y: scroll;
+  padding: var(--space-sm);
+  width: 35%;
+}
+
+.dot::before {
+  content: "•";
+  margin: 0 4px;
+}
+
+.sidebarHeaderWrapper {
+  border-bottom: 1px solid var(--grey-5);
+  padding: var(--space-md) 0;
+  width: 100%;
+}
+
+.sidebarTitle {
+  font-size: var(--fs-md-2);
+  width: 100%;
+}
+
+.sidebarHeader {
+  color: var(--grey-3);
+  display: flex;
+  font-size: var(--fs-xxs-2);
+  font-weight: var(--fw-3);
+}
+
+.watchlaterThumbnail {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.profileWrapper {
+  align-items: center;
+  display: flex;
+  gap: var(--space-xxs);
+  padding: var(--space-md) 0;
+}
+
+.profileImg {
+  border-radius: var(--br-full);
+  height: 60px;
+  width: 60px;
+}
+
+.userName {
+  font-size: var(--fs-sm-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

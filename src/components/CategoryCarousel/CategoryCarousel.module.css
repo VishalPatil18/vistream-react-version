@@ -2,6 +2,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-top: var(--space-lg);
 }
 
 .heading {
@@ -16,7 +17,7 @@
   gap: var(--space-md);
   margin-bottom: var(--space-md);
   overflow-x: scroll;
-  padding: var(--space-xs) var(--space-md);
+  padding: var(--space-md);
   scrollbar-width: none;
   width: 100%;
 }
