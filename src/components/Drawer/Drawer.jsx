@@ -2,23 +2,29 @@ import { DrawerTab } from "../../components";
 import { tabsList, icons } from "../../utilities";
 import { ASSETS_URL } from "../../constants";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 import styles from "./Drawer.module.css";
+import { useState } from "react";
 
 const Drawer = () => {
+  const [currPage, setCurrPage] = useState("Home");
+
   return (
     <div className={styles.drawer}>
-      <div className={styles.drawerHeader}>
+      <Link to="/" className={styles.drawerHeader}>
         <img src={`${ASSETS_URL}logo.svg`} className="icon-xl" />
         <p className={`h-4 ${styles.brandName}`}>
           <span className={styles.primaryFont}>VIS</span>TREAM
         </p>
-      </div>
+      </Link>
       {tabsList.map((item) => (
         <DrawerTab
           key={item.id}
           title={item.title}
           icon={item.icon}
-          active={item.active}
+          active={currPage === item.title ? true : false}
+          to={item.to}
+          onClicking={() => setCurrPage(item.title)}
         />
       ))}
       <button

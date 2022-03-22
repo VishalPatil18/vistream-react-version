@@ -1,4 +1,4 @@
-import { SmallVideoCard } from "../SmallVideoCard/SmallVideoCard";
+import { SmallVideoCard } from "../../components";
 import { videos } from "../../backend/db/videos";
 import styles from "./TrendingVideoTable.module.css";
 
@@ -14,8 +14,8 @@ const TrendingVideoTable = () => {
         </button>
       </div>
       <div className={styles.table}>
-        {videoList.map((video) => (
-          <SmallVideoCard video={video} />
+        {videoList.map((video, i) => (
+          <SmallVideoCard key={i} video={video} />
         ))}
       </div>
     </section>

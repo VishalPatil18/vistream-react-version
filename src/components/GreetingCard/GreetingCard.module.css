@@ -9,7 +9,7 @@
   display: flex;
   font-size: var(--fs-sm-2);
   justify-content: space-between;
-  margin: 0 var(--space-md) var(--space-md);
+  margin: 0 var(--space-md) var(--space-xxs);
   padding: var(--space-xs) var(--space-md);
 }
 

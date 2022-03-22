@@ -1,0 +1,18 @@
+.videolistWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-color: var(--primary) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+  width: 100%;
+}
+
+.videolistWrapper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.videolistWrapper:hover.videolistWrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}

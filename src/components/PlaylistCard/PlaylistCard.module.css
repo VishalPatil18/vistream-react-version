@@ -8,11 +8,45 @@
   width: 300px;
 }
 
+.playlistPageStyling {
+  cursor: default;
+  width: 100%;
+}
+
+.actionBtns {
+  cursor: pointer;
+}
+
+.editPlaylistBtn {
+  font-size: var(--fs-xxl-2);
+}
+
 .image {
   border-radius: var(--br-lg);
   height: 100%;
   object-fit: cover;
   width: 100%;
+}
+
+.actionBtnsWrapper {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-top-left-radius: var(--br-lg);
+  border-top-right-radius: var(--br-lg);
+  display: none;
+  font-size: var(--fs-xl-1);
+  gap: var(--space-sm);
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+}
+
+.card:hover > .actionBtnsWrapper {
+  display: flex;
 }
 
 .body {

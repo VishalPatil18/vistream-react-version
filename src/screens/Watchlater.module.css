@@ -1,0 +1,25 @@
+.headingWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+}
+
+.heading {
+  font-size: var(--fs-sm-2);
+  font-weight: var(--fw-2);
+  padding: 0 var(--space-md);
+}
+
+.body {
+  flex-shrink: 0;
+  height: calc(100vh - 88px);
+  overflow-y: hidden;
+}
+
+.watchlaterWrapper {
+  display: flex;
+  gap: var(--space-sm);
+  height: calc(100vh - 160px);
+  padding: var(--space-md);
+}

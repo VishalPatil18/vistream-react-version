@@ -28,6 +28,7 @@
 }
 
 .brandName {
+  color: white;
   font-size: var(--fs-lg-2);
   margin-left: var(--space-xxs);
 }
