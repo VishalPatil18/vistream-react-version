@@ -11,7 +11,7 @@ const Watchlater = () => {
       </div>
       <div className={styles.watchlaterWrapper}>
         <InfoSidebar page="Watch Later" />
-        <HorizontalCardWrapper videoList={videoList} />
+        <HorizontalCardWrapper videoList={videoList} page="watchlater" />
       </div>
     </section>
   );

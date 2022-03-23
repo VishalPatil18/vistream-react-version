@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getVideosService } from "../../services";
 import { MainVideoCard } from "../MainVideoCard/MainVideoCard";
 import styles from "./FeaturedVideos.module.css";
@@ -21,16 +22,18 @@ const FeaturedVideos = ({ page = "" }) => {
       <div className={styles.headingWrapper}>
         <h2 className={styles.heading}>Featured Videos</h2>
         {page === "homePage" ? (
-          <button
-            className={`button btn-plain btn-primary ${styles.seeAllBtn}`}
-          >
-            See all
-          </button>
+          <Link to="/explore">
+            <button
+              className={`button btn-plain btn-primary ${styles.seeAllBtn}`}
+            >
+              See all
+            </button>
+          </Link>
         ) : null}
       </div>
       <div className={styles.featuredVideos}>
-        {videos.map((video, i) => (
-          <MainVideoCard key={i} video={video} />
+        {videos.map((video) => (
+          <MainVideoCard key={video._id} video={video} />
         ))}
       </div>
     </section>

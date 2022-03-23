@@ -100,3 +100,7 @@
   content: "•";
   margin: 0 4px;
 }
+
+.liked {
+  color: var(--primary);
+}

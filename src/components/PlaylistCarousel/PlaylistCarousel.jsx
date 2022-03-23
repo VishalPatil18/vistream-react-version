@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PlaylistCard } from "../../components";
 import { categories } from "../../backend/db/categories";
 import styles from "./PlaylistCarousel.module.css";
@@ -7,9 +8,13 @@ const PlaylistCarousel = () => {
     <section>
       <div className={styles.headingWrapper}>
         <h2 className={styles.heading}>Playlists handcrafted by you!</h2>
-        <button className={`button btn-plain btn-primary ${styles.seeAllBtn}`}>
-          See all
-        </button>
+        <Link to="/playlist">
+          <button
+            className={`button btn-plain btn-primary ${styles.seeAllBtn}`}
+          >
+            See all
+          </button>
+        </Link>
       </div>
       <div className={styles.carousel}>
         {categories.map((item) => (

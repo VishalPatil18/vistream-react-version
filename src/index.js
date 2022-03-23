@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { makeServer } from "./server";
-import { AuthProvider, ComponentsProvider } from "./context";
+import { AuthProvider, ComponentsProvider, LikesProvider } from "./context";
 import "./index.css";
 import App from "./App";
 
@@ -14,7 +14,9 @@ ReactDOM.render(
     <BrowserRouter>
       <AuthProvider>
         <ComponentsProvider>
-          <App />
+          <LikesProvider>
+            <App />
+          </LikesProvider>
         </ComponentsProvider>
       </AuthProvider>
     </BrowserRouter>

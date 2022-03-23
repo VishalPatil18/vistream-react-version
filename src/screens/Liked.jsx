@@ -1,9 +1,10 @@
 import { InfoSidebar, HorizontalCardWrapper } from "../components";
-import { videos } from "../backend/db/videos";
+import { useLikes } from "../context";
 import styles from "./Liked.module.css";
 
 const Liked = () => {
-  const videoList = [...videos];
+  const { likesState } = useLikes();
+
   return (
     <section className={styles.body}>
       <div className={styles.headingWrapper}>
@@ -11,7 +12,11 @@ const Liked = () => {
       </div>
       <div className={styles.likedWrapper}>
         <InfoSidebar page="Liked Videos" />
-        <HorizontalCardWrapper videoList={videoList} />
+        {likesState.likes.length > 0 ? (
+          <HorizontalCardWrapper videoList={likesState.likes} page="liked" />
+        ) : (
+          <p>Don't you love the videos you see? Then go and like them!</p>
+        )}
       </div>
     </section>
   );
