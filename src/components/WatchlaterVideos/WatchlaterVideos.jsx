@@ -3,7 +3,7 @@ import { videos } from "../../backend/db/videos";
 import styles from "./WatchlaterVideos.module.css";
 
 const WatchlaterVideos = () => {
-  const videoList = [...videos, ...videos];
+  const videoList = videos.slice(0, 4);
 
   return (
     <section>

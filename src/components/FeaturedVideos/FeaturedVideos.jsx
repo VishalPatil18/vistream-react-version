@@ -1,21 +1,20 @@
-import { videos } from "../../backend/db/videos";
+import { useState, useEffect } from "react";
+import { getVideosService } from "../../services";
 import { MainVideoCard } from "../MainVideoCard/MainVideoCard";
 import styles from "./FeaturedVideos.module.css";
 
 const FeaturedVideos = ({ page = "" }) => {
-  // NOTE: Just for rendering purpose. Will remove it when using proper database
-  const videoList = [
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-  ];
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await getVideosService();
+        setVideos(response.data.videos);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   return (
     <section>
@@ -30,7 +29,7 @@ const FeaturedVideos = ({ page = "" }) => {
         ) : null}
       </div>
       <div className={styles.featuredVideos}>
-        {videoList.map((video, i) => (
+        {videos.map((video, i) => (
           <MainVideoCard key={i} video={video} />
         ))}
       </div>
