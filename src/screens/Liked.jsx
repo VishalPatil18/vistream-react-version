@@ -3,14 +3,7 @@ import { videos } from "../backend/db/videos";
 import styles from "./Liked.module.css";
 
 const Liked = () => {
-  const videoList = [
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-    ...videos,
-  ];
+  const videoList = [...videos];
   return (
     <section className={styles.body}>
       <div className={styles.headingWrapper}>

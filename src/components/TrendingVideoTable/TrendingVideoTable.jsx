@@ -3,7 +3,7 @@ import { videos } from "../../backend/db/videos";
 import styles from "./TrendingVideoTable.module.css";
 
 const TrendingVideoTable = () => {
-  const videoList = [...videos, ...videos];
+  const videoList = videos.slice(10, 14);
 
   return (
     <section>
