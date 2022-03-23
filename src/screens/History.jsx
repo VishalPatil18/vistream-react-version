@@ -11,7 +11,7 @@ const History = () => {
       </div>
       <div className={styles.historyWrapper}>
         <InfoSidebar page="Watch History" />
-        <HorizontalCardWrapper videoList={videoList} />
+        <HorizontalCardWrapper videoList={videoList} page="history" />
       </div>
     </section>
   );

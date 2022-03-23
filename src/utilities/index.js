@@ -1,7 +1,11 @@
+export { addToLikesHandler } from "./addToLikesHandler";
 export { guestUser } from "./guestUser";
 export { icons } from "./icons";
 export { inputHandler } from "./inputHandler";
+export { isLiked } from "./isLiked";
+export { likesHandler } from "./likesHandler";
 export { loginHandler } from "./loginHandler";
 export { logoutHandler } from "./logoutHandler";
+export { removeFromLikesHandler } from "./removeFromLikesHandler";
 export { signupHandler } from "./signupHandler";
 export { tabsList } from "./tabsList";

@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { Icon } from "@iconify/react";
-import { icons } from "../../utilities";
+import { useAuth, useLikes, useComponents } from "../../context";
+import { icons, isLiked, likesHandler } from "../../utilities";
 import styles from "./MainVideoCard.module.css";
 
 const MainVideoCard = ({ video }) => {
+  const { authState } = useAuth();
+  const { likesState, likesDispatch } = useLikes();
+  const { componentsDispatch } = useComponents();
+  const [liked, setLiked] = useState(isLiked(video, likesState.likes));
+
   return (
     <article className={styles.card}>
       <div className={styles.thumbnailWrapper}>
@@ -10,8 +17,20 @@ const MainVideoCard = ({ video }) => {
         <div className={styles.header}>
           <small className={styles.videoLength}>{video.videoLength}</small>
           <div className={styles.btnWrapper}>
-            <button className={styles.button}>
-              <Icon icon={icons.like} />
+            <button
+              className={`${styles.button} ${liked ? styles.liked : null}`}
+              onClick={() =>
+                likesHandler(
+                  authState.token,
+                  componentsDispatch,
+                  liked,
+                  likesDispatch,
+                  setLiked,
+                  video
+                )
+              }
+            >
+              <Icon icon={liked ? icons.liked : icons.like} />
             </button>
             <button className={styles.button}>
               <Icon icon={icons.bookmark} />
