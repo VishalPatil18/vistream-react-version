@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { makeServer } from "./server";
+import { AuthProvider, ComponentsProvider } from "./context";
 import "./index.css";
 import App from "./App";
 
@@ -11,7 +12,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <ComponentsProvider>
+          <App />
+        </ComponentsProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

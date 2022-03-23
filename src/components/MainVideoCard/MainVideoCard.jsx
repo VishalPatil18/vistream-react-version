@@ -29,9 +29,7 @@ const MainVideoCard = ({ video }) => {
             {video.title}
           </h4>
           <p className={styles.channelName}>{video.channelName}</p>
-          <div className={styles.subscribersWrapper}>
-            <p>{video.subscribers} Subscribers</p>
-            <span className={styles.dot}></span>
+          <div className={styles.channelDetails}>
             <p>{video.views} Views</p>
             <span className={styles.dot}></span>
             <p>{video.likes} Likes</p>

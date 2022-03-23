@@ -5,6 +5,7 @@ const icons = {
   bookmarked: "carbon:bookmark-filled",
   clock: "heroicons-solid:clock",
   close: "fa-solid:times",
+  closeFilled: "jam:close-circle-f",
   delete: "icomoon-free:bin",
   editPlaylist: "mdi:playlist-edit",
   explore: "ic:baseline-explore",
