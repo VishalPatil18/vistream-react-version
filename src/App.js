@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Drawer, GreetingCard, Footer } from "./components";
+import { Drawer, GreetingCard, Footer, Modal } from "./components";
 import {
   Home,
   Liked,
@@ -8,10 +8,13 @@ import {
   History,
   Settings,
 } from "./screens";
+import { useComponents } from "./context";
 import styles from "./App.module.css";
 import { Explore } from "./screens";
 
 function App() {
+  const { componentsState } = useComponents();
+
   return (
     <div className={styles.app}>
       <Drawer />
@@ -28,6 +31,11 @@ function App() {
         </Routes>
         <Footer />
       </section>
+      {componentsState.modal.active ? (
+        <Modal title={componentsState.modal.title}>
+          {componentsState.modal.child}
+        </Modal>
+      ) : null}
     </div>
   );
 }

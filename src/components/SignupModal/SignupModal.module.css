@@ -1,0 +1,19 @@
+.rememberMeContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.guestLogin {
+  margin-right: auto;
+}
+
+.rememberMeLabel {
+  color: var(--dark);
+}
+
+main > .modalFooter,
+main > footer,
+.rememberMeContainer ~ .modalFooter {
+  padding: var(--space-xs) 0;
+}

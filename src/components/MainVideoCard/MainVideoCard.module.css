@@ -55,7 +55,7 @@
 }
 
 .body {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   font-size: var(--fs-xxs-2);
   gap: var(--space-xxs);
@@ -75,19 +75,22 @@
 }
 
 .title {
-  font-size: var(--fs-sm-1);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-4);
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .channelName {
   color: var(--grey-2);
   cursor: pointer;
-  font-size: var(--fs-xs-1);
+  font-size: var(--fs-xxs-2);
 }
 
-.subscribersWrapper {
+.channelDetails {
   color: var(--grey-2);
   display: flex;
   font-size: var(--fs-xxs-1);

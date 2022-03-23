@@ -1,0 +1,8 @@
+.settings {
+  height: 100%;
+  padding: var(--space-md);
+}
+
+.greet {
+  font-size: var(--fs-sm-1);
+}
