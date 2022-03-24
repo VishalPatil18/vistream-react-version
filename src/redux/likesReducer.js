@@ -19,6 +19,8 @@ const likesReducer = (likesState, likesAction) => {
         ...likesState,
         likes: likesAction.payload.likes,
       };
+    case "RESET_LIKES":
+      return initialLikesState;
     default:
       return likesState;
   }

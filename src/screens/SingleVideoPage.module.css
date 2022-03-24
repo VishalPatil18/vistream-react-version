@@ -1,0 +1,149 @@
+.singleVideoPage {
+  height: fit-content;
+  padding: var(--space-md);
+}
+
+.videoEmbed {
+  height: 70vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.videoWrapper {
+  background-color: var(--secondary-theme-color);
+  border-radius: var(--br-md);
+  padding: var(--space-xl);
+}
+
+.descriptionWrapper {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: space-between;
+  margin-top: var(--space-lg);
+}
+
+.trendingVideos {
+  background-color: var(--dark);
+  border-radius: var(--br-md);
+  height: 400px;
+  overflow-y: scroll;
+  padding: var(--space-xs);
+  scrollbar-color: var(--primary) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+  width: 70%;
+}
+
+.trendingVideos::-webkit-scrollbar {
+  width: 5px;
+}
+
+.trendingVideos:hover.trendingVideos::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--br-full);
+}
+
+.title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  font-size: var(--fs-md-1);
+  font-weight: var(--fw-4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.descriptionText {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  color: white;
+  display: -webkit-box;
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-3);
+  margin: var(--space-md) var(--space-md) 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dot::before {
+  content: "•";
+  margin: 0 6px;
+}
+
+.videoInfoWrapper {
+  align-items: center;
+  border-bottom: 1px solid var(--grey-4);
+  color: var(--grey-3);
+  display: flex;
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-3);
+  justify-content: space-between;
+  margin-top: var(--space-xs);
+  padding-bottom: var(--space-sm);
+}
+
+.videoInfo {
+  display: flex;
+}
+
+.valueWrapper {
+  align-items: center;
+  background-color: initial;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  gap: var(--space-xxxs);
+  padding: var(--space-xxxs) var(--space-xxs);
+}
+
+.channelWrapper {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.channelDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.channelThumbnail {
+  border-radius: var(--br-full);
+  height: 60px;
+  object-fit: cover;
+  width: 60px;
+}
+
+.channelName {
+  color: white;
+  font-size: var(--fs-sm-1);
+}
+
+.channelSubs {
+  color: var(--grey-3);
+  font-size: var(--fs-xxs-2);
+}
+
+.iconsWrapper {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: var(--fs-sm-2);
+}
+
+.value {
+  font-size: var(--fs-xxs-2);
+  text-transform: uppercase;
+}
+
+.bookmarkIcon {
+  font-size: var(--fs-sm-1);
+}
+
+.playlistIcon {
+  font-size: var(--fs-m-2);
+}
+
+.liked > svg {
+  color: var(--primary);
+}

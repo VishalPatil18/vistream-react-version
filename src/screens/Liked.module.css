@@ -23,3 +23,12 @@
   height: calc(100vh - 160px);
   padding: var(--space-md);
 }
+
+.emptyLikesMsg {
+  align-items: center;
+  display: flex;
+  font-size: var(--fs-lg-1);
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}

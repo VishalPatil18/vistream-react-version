@@ -77,6 +77,7 @@
 .title {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  color: white;
   display: -webkit-box;
   font-size: var(--fs-xs-1);
   font-weight: var(--fw-4);

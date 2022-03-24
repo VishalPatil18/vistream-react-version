@@ -25,6 +25,7 @@ const icons = {
   plus: "fa:plus",
   settings: "fa-solid:cog",
   share: "ci:share",
+  share2: "fa-solid:share",
   user: "fa-solid:user",
   views: "carbon:view-filled",
 

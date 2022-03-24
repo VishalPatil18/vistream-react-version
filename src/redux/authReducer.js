@@ -1,6 +1,6 @@
 const initialAuthState = {
-  token: null,
-  user: null,
+  token: "",
+  user: "",
 };
 
 const authReducer = (state, action) => {
@@ -18,7 +18,7 @@ const authReducer = (state, action) => {
         user: action.payload.user,
       };
     case "LOGOUT":
-      return { ...state, token: null, user: null };
+      return { ...state, token: "", user: "" };
     case "SIGNUP":
       return {
         ...state,

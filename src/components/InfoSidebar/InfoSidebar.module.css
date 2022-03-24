@@ -21,6 +21,7 @@
 
 .sidebar:hover.sidebar::-webkit-scrollbar-thumb {
   background: var(--primary);
+  border-radius: var(--br-full);
 }
 
 .dot::before {
