@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.createPlaylistBtn {
+  margin: var(--space-sm) 0 0 auto;
+}

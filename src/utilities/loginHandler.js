@@ -1,4 +1,9 @@
-import { loginService, getHistoryService, getLikesService } from "../services";
+import {
+  loginService,
+  getHistoryService,
+  getLikesService,
+  getPlaylistsService,
+} from "../services";
 
 const loginHandler = async (
   login,
@@ -6,6 +11,7 @@ const loginHandler = async (
   componentsDispatch,
   historyDispatch,
   likesDispatch,
+  playlistsDispatch,
   event
 ) => {
   try {
@@ -35,6 +41,15 @@ const loginHandler = async (
         type: "INITIAL_LIKES",
         payload: {
           likes: responseLikes.data.likes,
+        },
+      });
+      const responsePlaylists = await getPlaylistsService(
+        response.data.encodedToken
+      );
+      playlistsDispatch({
+        type: "INITIAL_PLAYLISTS",
+        payload: {
+          playlists: responsePlaylists.data.playlists,
         },
       });
       componentsDispatch({

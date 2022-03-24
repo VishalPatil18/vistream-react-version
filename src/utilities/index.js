@@ -1,5 +1,7 @@
 export { addToHistoryHandler } from "./addToHistoryHandler";
 export { addToLikesHandler } from "./addToLikesHandler";
+export { addToPlaylistsHandler } from "./addToPlaylistsHandler";
+export { addVideoToPlaylistsHandler } from "./addVideoToPlaylistHandler";
 export { clearHistoryHandler } from "./clearHistoryHandler";
 export { guestUser } from "./guestUser";
 export { icons } from "./icons";
@@ -11,5 +13,7 @@ export { loginHandler } from "./loginHandler";
 export { logoutHandler } from "./logoutHandler";
 export { removeFromHistoryHandler } from "./removeFromHistoryHandler";
 export { removeFromLikesHandler } from "./removeFromLikesHandler";
+export { removeFromPlaylistsHandler } from "./removeFromPlaylistsHandler";
+export { removeVideoFromPlaylistsHandler } from "./removeVideoFromPlaylistHandler";
 export { signupHandler } from "./signupHandler";
 export { tabsList } from "./tabsList";

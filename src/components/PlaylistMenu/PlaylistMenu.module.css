@@ -1,0 +1,20 @@
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxxs);
+  z-index: 5;
+}
+
+.playlistBtns {
+  background-color: initial;
+  border-radius: var(--br-xxs);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--space-xxs);
+  transition: background-color 0.2s ease-in;
+}
+
+.playlistBtns:hover {
+  background-color: var(--dark);
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useParams } from "react-router-dom";
-import { HorizontalCardWrapper } from "../components";
+import { HorizontalCardWrapper, PlaylistMenu } from "../components";
 import { videos } from "../backend/db/videos";
 import {
   addToHistoryHandler,
@@ -26,7 +26,7 @@ const SingleVideoPage = () => {
   const { componentsDispatch } = useComponents();
   const { likesState, likesDispatch } = useLikes();
   const { historyState, historyDispatch } = useHistory();
-
+  const [isOpen, setIsOpen] = useState(false);
   const videoList = videos.slice(8, 22);
   const video = videosData.find((currVideo) => currVideo.youtubeID === videoID);
   const {
@@ -100,12 +100,20 @@ const SingleVideoPage = () => {
                   <Icon icon={icons.bookmarked} />
                   <p className={styles.value}>Watchlater</p>
                 </span>
-                <span
+                <button
                   className={`${styles.valueWrapper} ${styles.playlistIcon}`}
+                  onClick={() => setIsOpen((prevState) => !prevState)}
                 >
                   <Icon icon={icons.addToPlaylist} />
                   <p className={styles.value}>Save</p>
-                </span>
+                  <div
+                    className={`${styles.playlistMenu} ${
+                      isOpen ? styles.menuOpen : styles.menuClose
+                    }`}
+                  >
+                    <PlaylistMenu video={video} />
+                  </div>
+                </button>
                 <span className={`${styles.valueWrapper}`}>
                   <Icon icon={icons.share2} />
                   <p className={styles.value}>Share</p>

@@ -125,3 +125,23 @@
   color: white;
   position: relative;
 }
+
+.playlistMenu {
+  background-color: var(--dark);
+  border-radius: var(--br-xs);
+  flex-direction: column;
+  font-size: var(--fs-xs-1);
+  padding: var(--space-xs);
+  position: absolute;
+  right: 0px;
+  top: 90px;
+  z-index: 5;
+}
+
+.menuOpen {
+  display: flex;
+}
+
+.menuClose {
+  display: none;
+}

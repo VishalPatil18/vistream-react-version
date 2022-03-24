@@ -1,27 +1,39 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
-import { useAuth, useLikes, useComponents, useHistory } from "../../context";
+import { PlaylistMenu } from "../../components";
+import {
+  useAuth,
+  useLikes,
+  useComponents,
+  useHistory,
+  usePlaylists,
+} from "../../context";
 import {
   icons,
   isInHistory,
   isLiked,
   likesHandler,
   removeFromHistoryHandler,
+  removeVideoFromPlaylistsHandler,
 } from "../../utilities";
 import styles from "./SmallVideoCard.module.css";
 
-const SmallVideoCard = ({ video, page = "" }) => {
+const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
   const { authState } = useAuth();
   const { likesState, likesDispatch } = useLikes();
   const { historyState, historyDispatch } = useHistory();
   const { componentsDispatch } = useComponents();
+  const { playlistsDispatch } = usePlaylists();
+  const [isOpen, setIsOpen] = useState(false);
   const [isPresent, setIsPresent] = useState(() => {
     switch (page) {
       case "liked":
         return isLiked(video, likesState.likes);
       case "history":
         return isInHistory(video, historyState.history);
+      case "playlist":
+        return true;
       default:
         return false;
     }
@@ -55,6 +67,13 @@ const SmallVideoCard = ({ video, page = "" }) => {
                     historyDispatch,
                     authState.token
                   );
+                case "playlist":
+                  return removeVideoFromPlaylistsHandler(
+                    playlistID,
+                    video._id,
+                    playlistsDispatch,
+                    authState.token
+                  );
               }
             }}
           >
@@ -79,12 +98,22 @@ const SmallVideoCard = ({ video, page = "" }) => {
             />
             {isPresent ? `Remove from ${page}` : `Add to ${page}`}
           </button>
-          <button className={styles.menuActionBtn}>
+          <button
+            className={styles.menuActionBtn}
+            onClick={() => setIsOpen((prevState) => !prevState)}
+          >
             <Icon
               icon={icons.playlist}
               className={`${styles.menuActionBtnIcon} ${styles.addToPlaylistIcon}`}
             />
             Save to playlist
+            <div
+              className={`${styles.playlistMenu} ${
+                isOpen ? styles.menuOpen : styles.menuClose
+              }`}
+            >
+              <PlaylistMenu video={video} />
+            </div>
           </button>
         </div>
       </div>

@@ -8,6 +8,7 @@ import {
   LikesProvider,
   DataProvider,
   HistoryProvider,
+  PlaylistsProvider,
 } from "./context";
 import "./index.css";
 import App from "./App";
@@ -23,7 +24,9 @@ ReactDOM.render(
           <ComponentsProvider>
             <LikesProvider>
               <HistoryProvider>
-                <App />
+                <PlaylistsProvider>
+                  <App />
+                </PlaylistsProvider>
               </HistoryProvider>
             </LikesProvider>
           </ComponentsProvider>
