@@ -26,7 +26,7 @@ const InfoSidebar = ({ page, noOfVideos }) => {
           alt="profile"
         />
         <p title="Bablue Tailor" className={styles.userName}>
-          {authState.userName}
+          {authState.user.username}
         </p>
       </div>
     </div>

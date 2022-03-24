@@ -1,18 +1,27 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
-import { useAuth, useLikes, useComponents } from "../../context";
-import { icons, isLiked, likesHandler } from "../../utilities";
-import styles from "./SmallVideoCard.module.css";
 import { Link } from "react-router-dom";
+import { useAuth, useLikes, useComponents, useHistory } from "../../context";
+import {
+  icons,
+  isInHistory,
+  isLiked,
+  likesHandler,
+  removeFromHistoryHandler,
+} from "../../utilities";
+import styles from "./SmallVideoCard.module.css";
 
 const SmallVideoCard = ({ video, page = "" }) => {
   const { authState } = useAuth();
   const { likesState, likesDispatch } = useLikes();
+  const { historyState, historyDispatch } = useHistory();
   const { componentsDispatch } = useComponents();
   const [isPresent, setIsPresent] = useState(() => {
     switch (page) {
       case "liked":
         return isLiked(video, likesState.likes);
+      case "history":
+        return isInHistory(video, historyState.history);
       default:
         return false;
     }
@@ -39,6 +48,12 @@ const SmallVideoCard = ({ video, page = "" }) => {
                     likesDispatch,
                     setIsPresent,
                     video
+                  );
+                case "history":
+                  return removeFromHistoryHandler(
+                    video._id,
+                    historyDispatch,
+                    authState.token
                   );
               }
             }}

@@ -3,12 +3,12 @@
   display: flex;
   justify-content: space-between;
   margin-top: var(--space-md);
+  padding: 0 var(--space-md);
 }
 
 .heading {
   font-size: var(--fs-sm-2);
   font-weight: var(--fw-2);
-  padding: 0 var(--space-md);
 }
 
 .body {
@@ -22,4 +22,30 @@
   gap: var(--space-sm);
   height: calc(100vh - 160px);
   padding: var(--space-md);
+}
+
+.emptyHistoryMsg {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-lg-1);
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.clearBtn {
+  align-items: center;
+  display: flex;
+  gap: var(--space-xxxs);
+  padding: var(--space-xxs) var(--space-xs);
+}
+
+.disabledBtn {
+  cursor: not-allowed;
+  background-color: var(--grey-3);
+}
+
+.disabledBtn:hover {
+  background-color: var(--grey-3);
 }

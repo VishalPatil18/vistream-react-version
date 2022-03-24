@@ -1,11 +1,15 @@
+export { addToHistoryHandler } from "./addToHistoryHandler";
 export { addToLikesHandler } from "./addToLikesHandler";
+export { clearHistoryHandler } from "./clearHistoryHandler";
 export { guestUser } from "./guestUser";
 export { icons } from "./icons";
 export { inputHandler } from "./inputHandler";
+export { isInHistory } from "./isInHistory";
 export { isLiked } from "./isLiked";
 export { likesHandler } from "./likesHandler";
 export { loginHandler } from "./loginHandler";
 export { logoutHandler } from "./logoutHandler";
+export { removeFromHistoryHandler } from "./removeFromHistoryHandler";
 export { removeFromLikesHandler } from "./removeFromLikesHandler";
 export { signupHandler } from "./signupHandler";
 export { tabsList } from "./tabsList";
