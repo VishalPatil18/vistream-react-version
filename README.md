@@ -48,9 +48,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#how-to-use">How To Use</a></li>
     <li><a href="#key-features">Key Features</a></li>
-    <li><a href="#key-features">Tech Stack</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#folder-structure">Folder Structure</a></li>    
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#license">License</a></li>
@@ -67,13 +67,6 @@ VIStream is a video library for all kind of videos related to video games. One c
 <p align="center">
   <!-- <img width="100%" src="https://raw.githubusercontent.com/VishalPatil18/VISKart/main/assets/walkthrough.gif" alt="viskart walkthrough"/> -->
 </p>
-
-<br />
-
-<!-- HOW TO USE -->
-
-## **🤔 How To Use**
-Coming Soon...
 
 <br />
 
@@ -108,6 +101,35 @@ Coming Soon...
 - [Mockbee](https://mockbee.netlify.app/) - for mock backend
 - [VISPA-UI](https://vispaui-docs-development.netlify.app/)
 - ICONIFY
+
+<br />
+
+<!-- FOLDER STRUCTURE -->
+
+## **🗂 Folder Structure**
+
+```jsx
+- /public
+- /src
+   - /backend
+   - /components
+   - /constants
+   - /context
+   - /hooks
+   - /redux
+   - /screens
+   - /services
+   - /utilities
+   - App.js
+   - App.module.css
+   - index.css
+   - index.js
+   - server.js
+- package-lock.json
+- package.json
+- README.md
+- yarn.lock
+```
 
 <br />
 
