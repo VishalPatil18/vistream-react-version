@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { useAuth, useLikes, useComponents } from "../../context";
 import { icons, isLiked, likesHandler } from "../../utilities";
 import styles from "./MainVideoCard.module.css";
+import { Link } from "react-router-dom";
 
 const MainVideoCard = ({ video }) => {
   const { authState } = useAuth();
@@ -13,7 +14,9 @@ const MainVideoCard = ({ video }) => {
   return (
     <article className={styles.card}>
       <div className={styles.thumbnailWrapper}>
-        <img className={styles.thumbnail} src={video.videoThumbnail} />
+        <Link to={`/${video.youtubeID}`}>
+          <img className={styles.thumbnail} src={video.videoThumbnail} />
+        </Link>
         <div className={styles.header}>
           <small className={styles.videoLength}>{video.videoLength}</small>
           <div className={styles.btnWrapper}>
@@ -44,9 +47,11 @@ const MainVideoCard = ({ video }) => {
       <div className={styles.body}>
         <img src={video.channelThumbnail} className={styles.channelThumbnail} />
         <div className={styles.bodyContent}>
-          <h4 className={styles.title} title={video.title}>
-            {video.title}
-          </h4>
+          <Link to={`/${video.youtubeID}`}>
+            <h4 className={styles.title} title={video.title}>
+              {video.title}
+            </h4>
+          </Link>
           <p className={styles.channelName}>{video.channelName}</p>
           <div className={styles.channelDetails}>
             <p>{video.views} Views</p>

@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useComponents } from "./context";
 import { Drawer, GreetingCard, Footer, Modal } from "./components";
 import {
   Home,
@@ -7,10 +8,10 @@ import {
   Watchlater,
   History,
   Settings,
+  SingleVideoPage,
+  Explore,
 } from "./screens";
-import { useComponents } from "./context";
 import styles from "./App.module.css";
-import { Explore } from "./screens";
 
 function App() {
   const { componentsState } = useComponents();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/liked" element={<Liked />} />
           <Route path="/history" element={<History />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/:videoID" element={<SingleVideoPage />} />
         </Routes>
         <Footer />
       </section>

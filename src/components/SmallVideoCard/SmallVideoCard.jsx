@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { useAuth, useLikes, useComponents } from "../../context";
 import { icons, isLiked, likesHandler } from "../../utilities";
 import styles from "./SmallVideoCard.module.css";
+import { Link } from "react-router-dom";
 
 const SmallVideoCard = ({ video, page = "" }) => {
   const { authState } = useAuth();
@@ -19,7 +20,10 @@ const SmallVideoCard = ({ video, page = "" }) => {
 
   return (
     <article className={styles.card}>
-      <img src={video.videoThumbnail} className={styles.image} />
+      <Link to={`/${video.youtubeID}`} className={styles.imageWrapper}>
+        <img src={video.videoThumbnail} className={styles.image} />
+        <small className={styles.videoLength}>{video.videoLength}</small>
+      </Link>
       <div className={styles.menuWrapper}>
         <Icon icon={icons.menu} className={styles.menuBtn} />
         <div className={styles.menu}>
@@ -69,13 +73,12 @@ const SmallVideoCard = ({ video, page = "" }) => {
           </button>
         </div>
       </div>
-      <small className={styles.videoLength}>{video.videoLength}</small>
-      <div className={styles.body}>
+      <Link to={`/${video.youtubeID}`} className={styles.body}>
         <h3 className={`h-6 ${styles.title}`} title={video.title}>
           {video.title}
         </h3>
         <p className={styles.channelName}>{video.channelName}</p>
-      </div>
+      </Link>
     </article>
   );
 };

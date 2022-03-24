@@ -1,6 +1,9 @@
+import { useAuth } from "../../context";
 import styles from "./InfoSidebar.module.css";
 
-const InfoSidebar = ({ page }) => {
+const InfoSidebar = ({ page, noOfVideos }) => {
+  const { authState } = useAuth();
+
   return (
     <div className={styles.sidebar}>
       <img
@@ -11,7 +14,7 @@ const InfoSidebar = ({ page }) => {
       <div className={styles.sidebarHeaderWrapper}>
         <p className={styles.sidebarTitle}>{page}</p>
         <div className={styles.sidebarHeader}>
-          <p>20 videos</p>
+          <p>{noOfVideos} videos</p>
           <span className={styles.dot}></span>
           <p>Updated 4 days ago</p>
         </div>
@@ -23,7 +26,7 @@ const InfoSidebar = ({ page }) => {
           alt="profile"
         />
         <p title="Bablue Tailor" className={styles.userName}>
-          Bablu Tailor
+          {authState.userName}
         </p>
       </div>
     </div>

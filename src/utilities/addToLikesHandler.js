@@ -7,7 +7,7 @@ const addToLikesHandler = async (video, likesDispatch, token) => {
       likesDispatch({
         type: "ADD_TO_LIKES",
         payload: {
-          likes: response.data.likes,
+          likes: response.data.likes.reverse(),
         },
       });
     } else {

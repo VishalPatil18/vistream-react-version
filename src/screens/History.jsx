@@ -10,7 +10,7 @@ const History = () => {
         <h2 className={styles.heading}>Your Watch History</h2>
       </div>
       <div className={styles.historyWrapper}>
-        <InfoSidebar page="Watch History" />
+        <InfoSidebar page="Watch History" noOfVideos={videoList.length} />
         <HorizontalCardWrapper videoList={videoList} page="history" />
       </div>
     </section>

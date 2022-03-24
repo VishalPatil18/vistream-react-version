@@ -10,7 +10,7 @@ const Watchlater = () => {
         <h2 className={styles.heading}>Your Watchlater</h2>
       </div>
       <div className={styles.watchlaterWrapper}>
-        <InfoSidebar page="Watch Later" />
+        <InfoSidebar page="Watch Later" noOfVideos={videoList.length} />
         <HorizontalCardWrapper videoList={videoList} page="watchlater" />
       </div>
     </section>

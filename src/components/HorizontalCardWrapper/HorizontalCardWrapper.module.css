@@ -15,4 +15,5 @@
 
 .videolistWrapper:hover.videolistWrapper::-webkit-scrollbar-thumb {
   background: var(--primary);
+  border-radius: var(--br-full);
 }

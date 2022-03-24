@@ -19,8 +19,3 @@
 .mainContent {
   height: fit-content;
 }
-
-/* NOTE: Just for development purpose, will remove it in production code */
-iframe {
-  display: none;
-}

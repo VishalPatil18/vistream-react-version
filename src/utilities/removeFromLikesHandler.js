@@ -7,7 +7,7 @@ const removeFromLikesHandler = async (videoId, likesDispatch, token) => {
       likesDispatch({
         type: "REMOVE_FROM_LIKES",
         payload: {
-          likes: response.data.likes,
+          likes: response.data.likes.reverse(),
         },
       });
     } else {

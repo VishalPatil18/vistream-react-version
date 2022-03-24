@@ -1,12 +1,14 @@
+import { useState } from "react";
+import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context";
 import { DrawerTab } from "../../components";
 import { tabsList, icons } from "../../utilities";
 import { ASSETS_URL } from "../../constants";
-import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
 import styles from "./Drawer.module.css";
-import { useState } from "react";
 
 const Drawer = () => {
+  const { authState } = useAuth();
   const [currPage, setCurrPage] = useState("Home");
 
   return (
@@ -23,7 +25,8 @@ const Drawer = () => {
           title={item.title}
           icon={item.icon}
           active={currPage === item.title ? true : false}
-          to={item.to}
+          to={!authState.token && item.isPrivate ? "/" : item.to}
+          isPrivate={item.isPrivate}
           onClicking={() => setCurrPage(item.title)}
         />
       ))}

@@ -1,21 +1,10 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getVideosService } from "../../services";
+import { useData } from "../../context";
 import { MainVideoCard } from "../MainVideoCard/MainVideoCard";
 import styles from "./FeaturedVideos.module.css";
 
 const FeaturedVideos = ({ page = "" }) => {
-  const [videos, setVideos] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await getVideosService();
-        setVideos(response.data.videos);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  const { videosData } = useData();
 
   return (
     <section>
@@ -32,7 +21,7 @@ const FeaturedVideos = ({ page = "" }) => {
         ) : null}
       </div>
       <div className={styles.featuredVideos}>
-        {videos.map((video) => (
+        {videosData.map((video) => (
           <MainVideoCard key={video._id} video={video} />
         ))}
       </div>

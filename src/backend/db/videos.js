@@ -7,7 +7,7 @@ export const videos = [
   {
     _id: "Wo5dMEP_BbI",
     title: "Battlefield 2042 Official Reveal Trailer",
-    link: "https://youtu.be/ASzOzrB-a9E",
+    youtubeID: "ASzOzrB-a9E",
     videoLength: "4:50",
     videoThumbnail: "http://i3.ytimg.com/vi/ASzOzrB-a9E/hqdefault.jpg",
     likes: "120",
@@ -24,7 +24,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbI",
     title: "God of War: Ragnarok - Official Gameplay Trailer",
-    link: "https://youtu.be/68pYm_KgptU",
+    youtubeID: "68pYm_KgptU",
     videoLength: "3:16",
     videoThumbnail: "http://i3.ytimg.com/vi/68pYm_KgptU/hqdefault.jpg",
     likes: "98K",
@@ -41,7 +41,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbA",
     title: "Hogwarts Legacy: A Very Deep Dive Into The New Gameplay",
-    link: "https://youtu.be/I1AbCj6Ppwk",
+    youtubeID: "I1AbCj6Ppwk",
     videoLength: "14:56",
     videoThumbnail: "http://i3.ytimg.com/vi/I1AbCj6Ppwk/hqdefault.jpg",
     likes: "804",
@@ -58,7 +58,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbB",
     title: "GRAN TURISMO 7 PS5 Walkthrough Gameplay Part 1",
-    link: "https://youtu.be/awcGsNZyOxA",
+    youtubeID: "awcGsNZyOxA",
     videoLength: "56:03",
     videoThumbnail: "http://i3.ytimg.com/vi/awcGsNZyOxA/hqdefault.jpg",
     likes: "19K",
@@ -75,7 +75,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbC",
     title: "FIFA 22 - PSG vs Manchester United | PS5™ Gameplay",
-    link: "https://youtu.be/vck7pnCjA-8",
+    youtubeID: "vck7pnCjA-8",
     videoLength: "23:34",
     videoThumbnail: "http://i3.ytimg.com/vi/vck7pnCjA-8/hqdefault.jpg",
     likes: "13K",
@@ -92,7 +92,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbD",
     title: "FIFA 22 | Official Gameplay Trailer",
-    link: "https://youtu.be/vLj-27T-SEQ",
+    youtubeID: "vLj-27T-SEQ",
     videoLength: "3:47",
     videoThumbnail: "http://i3.ytimg.com/vi/vLj-27T-SEQ/hqdefault.jpg",
     likes: "93K",
@@ -117,7 +117,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbE",
     title: "Bugatti Divo - Forza Horizon 4 | Logitech g29 gameplay",
-    link: "https://youtu.be/K9nof302n0U",
+    youtubeID: "K9nof302n0U",
     videoLength: "13:31",
     videoThumbnail: "http://i3.ytimg.com/vi/K9nof302n0U/hqdefault.jpg",
     likes: "114K",
@@ -133,7 +133,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbF",
     title: "Cricket 22 PS5 - Full Gameplay 4K HDR",
-    link: "https://youtu.be/k0L8aWP-fCc",
+    youtubeID: "k0L8aWP-fCc",
     videoLength: "25:40",
     videoThumbnail: "http://i3.ytimg.com/vi/k0L8aWP-fCc/hqdefault.jpg",
     likes: "1.8K",
@@ -149,7 +149,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbG",
     title: "Why Do So Many Gamers Hate Valorant?",
-    link: "https://youtu.be/ZXtChWPx99w",
+    youtubeID: "ZXtChWPx99w",
     videoLength: "12:15",
     videoThumbnail: "http://i3.ytimg.com/vi/ZXtChWPx99w/hqdefault.jpg",
     likes: "9.3M",
@@ -165,7 +165,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbH",
     title: "What's Wrong With Valorant?",
-    link: "https://youtu.be/SPJc0-CNczg",
+    youtubeID: "SPJc0-CNczg",
     videoLength: "44:17",
     videoThumbnail: "http://i3.ytimg.com/vi/SPJc0-CNczg/hqdefault.jpg",
     likes: "3.8M",
@@ -181,7 +181,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbJ",
     title: "5 Reasons Why VALORANT is BAD",
-    link: "https://youtu.be/AP0nkSSlRSg",
+    youtubeID: "AP0nkSSlRSg",
     videoLength: "6:02",
     videoThumbnail: "http://i3.ytimg.com/vi/AP0nkSSlRSg/hqdefault.jpg",
     likes: "1.1M",
@@ -199,7 +199,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbK",
     title: "DYING LIGHT 2 Gameplay Walkthrough",
-    link: "https://youtu.be/Ow0xcOL2ErY",
+    youtubeID: "Ow0xcOL2ErY",
     videoLength: "13:56:43",
     videoThumbnail: "http://i3.ytimg.com/vi/Ow0xcOL2ErY/hqdefault.jpg",
     likes: "15K",
@@ -216,7 +216,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbL",
     title: "Minecraft Part 1",
-    link: "https://youtu.be/VGt-BZ-SxGI",
+    youtubeID: "VGt-BZ-SxGI",
     videoLength: "20:42",
     videoThumbnail: "http://i3.ytimg.com/vi/VGt-BZ-SxGI/hqdefault.jpg",
     likes: "2.5M",
@@ -232,7 +232,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbM",
     title: "Pubg PC Erangel 2.0 Gameplay",
-    link: "https://youtu.be/JxJr3qPw-Jg",
+    youtubeID: "JxJr3qPw-Jg",
     videoLength: "28:15",
     videoThumbnail: "http://i3.ytimg.com/vi/JxJr3qPw-Jg/hqdefault.jpg",
     likes: "7.2K",
@@ -248,7 +248,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbN",
     title: "BATTLEFIELD 5 Campaign Gameplay Walkthrough",
-    link: "https://youtu.be/QYYfU6Mj1kE",
+    youtubeID: "QYYfU6Mj1kE",
     videoLength: "3:24:45",
     videoThumbnail: "http://i3.ytimg.com/vi/QYYfU6Mj1kE/hqdefault.jpg",
     likes: "11K",
@@ -264,7 +264,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbO",
     title: "CALL OF DUTY VANGUARD PS5 Walkthrough Gameplay Part 1",
-    link: "https://youtu.be/sAz5OWaW8aU",
+    youtubeID: "sAz5OWaW8aU",
     videoLength: "1:05:38",
     videoThumbnail: "http://i3.ytimg.com/vi/sAz5OWaW8aU/hqdefault.jpg",
     likes: "87K",
@@ -280,7 +280,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbP",
     title: "FALL GUYS Gameplay - SO MUCH FUN",
-    link: "https://youtu.be/u5UbrOmeczA",
+    youtubeID: "u5UbrOmeczA",
     videoLength: "13:24",
     videoThumbnail: "http://i3.ytimg.com/vi/u5UbrOmeczA/hqdefault.jpg",
     likes: "11K",
@@ -296,7 +296,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbP",
     title: "Crazy Taxi Arcade Longplay Gameplay",
-    link: "https://youtu.be/qjIGkv0_dEM",
+    youtubeID: "qjIGkv0_dEM",
     videoLength: "33:27",
     videoThumbnail: "http://i3.ytimg.com/vi/qjIGkv0_dEM/hqdefault.jpg",
     likes: "8.2K",
@@ -312,7 +312,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbQ",
     title: "Counter-Strike: Global Offensive (2021) - Gameplay",
-    link: "https://youtu.be/KnpljMWwy3o",
+    youtubeID: "KnpljMWwy3o",
     videoLength: "17:10",
     videoThumbnail: "http://i3.ytimg.com/vi/KnpljMWwy3o/hqdefault.jpg",
     likes: "15K",
@@ -328,7 +328,7 @@ export const videos = [
   {
     _id: "Wo5dMsP_BbR",
     title: "Counter-Strike: Global Offensive Trailer",
-    link: "https://youtu.be/edYCtaNueQY",
+    youtubeID: "edYCtaNueQY",
     videoLength: "3:54",
     videoThumbnail: "http://i3.ytimg.com/vi/edYCtaNueQY/hqdefault.jpg",
     likes: "435K",
