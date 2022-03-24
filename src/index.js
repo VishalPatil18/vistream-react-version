@@ -7,6 +7,7 @@ import {
   ComponentsProvider,
   LikesProvider,
   DataProvider,
+  HistoryProvider,
 } from "./context";
 import "./index.css";
 import App from "./App";
@@ -21,7 +22,9 @@ ReactDOM.render(
         <DataProvider>
           <ComponentsProvider>
             <LikesProvider>
-              <App />
+              <HistoryProvider>
+                <App />
+              </HistoryProvider>
             </LikesProvider>
           </ComponentsProvider>
         </DataProvider>

@@ -1,20 +1,40 @@
-import { loginService } from "../services";
+import { loginService, getHistoryService, getLikesService } from "../services";
 
-const loginHandler = async (login, authDispatch, componentsDispatch, event) => {
+const loginHandler = async (
+  login,
+  authDispatch,
+  componentsDispatch,
+  historyDispatch,
+  likesDispatch,
+  event
+) => {
   try {
     event.preventDefault();
     const response = await loginService(login);
     if (response.status === 200) {
       localStorage.setItem("token", response.data.encodedToken);
-      localStorage.setItem(
-        "user",
-        JSON.stringify(response.data.foundUser)
-      );
+      localStorage.setItem("user", JSON.stringify(response.data.foundUser));
       authDispatch({
         type: "LOGIN",
         payload: {
           token: response.data.encodedToken,
           user: response.data.foundUser,
+        },
+      });
+      const responseHistory = await getHistoryService(
+        response.data.encodedToken
+      );
+      historyDispatch({
+        type: "INITIAL_HISTORY",
+        payload: {
+          history: responseHistory.data.history,
+        },
+      });
+      const responseLikes = await getLikesService(response.data.encodedToken);
+      likesDispatch({
+        type: "INITIAL_LIKES",
+        payload: {
+          likes: responseLikes.data.likes,
         },
       });
       componentsDispatch({
@@ -24,7 +44,7 @@ const loginHandler = async (login, authDispatch, componentsDispatch, event) => {
           child: "",
           title: "",
         },
-      })
+      });
       alert("Login Successful");
     }
     if (response.status === 404) {

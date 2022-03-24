@@ -1,6 +1,10 @@
+export { addToHistoryService } from "./addToHistory.service";
 export { addToLikesService } from "./addToLikes.service";
+export { clearHistoryService } from "./clearHistory.service";
+export { getHistoryService } from "./getHistory.service";
 export { getLikesService } from "./getLikes.service";
 export { getVideosService } from "./getVideos.service";
 export { loginService } from "./login.service";
+export { removeFromHistoryService } from "./removeFromHistory.service";
 export { removeFromLikesService } from "./removeFromLikes.service";
 export { signupService } from "./signup.service";

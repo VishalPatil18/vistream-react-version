@@ -1,18 +1,31 @@
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import { Icon } from "@iconify/react";
-import { icons, isLiked, likesHandler } from "../utilities";
+import { useParams } from "react-router-dom";
 import { HorizontalCardWrapper } from "../components";
 import { videos } from "../backend/db/videos";
-import { useAuth, useComponents, useData, useLikes } from "../context";
+import {
+  addToHistoryHandler,
+  icons,
+  isInHistory,
+  isLiked,
+  likesHandler,
+} from "../utilities";
+import {
+  useAuth,
+  useComponents,
+  useData,
+  useHistory,
+  useLikes,
+} from "../context";
 import styles from "./SingleVideoPage.module.css";
-import { useState } from "react";
 
 const SingleVideoPage = () => {
   const { videosData } = useData();
-  const { likesState, likesDispatch } = useLikes();
+  const { videoID } = useParams();
   const { authState } = useAuth();
   const { componentsDispatch } = useComponents();
-  const { videoID } = useParams();
+  const { likesState, likesDispatch } = useLikes();
+  const { historyState, historyDispatch } = useHistory();
 
   const videoList = videos.slice(8, 22);
   const video = videosData.find((currVideo) => currVideo.youtubeID === videoID);
@@ -30,6 +43,14 @@ const SingleVideoPage = () => {
   const [isVideoLiked, setIsVideoLiked] = useState(
     isLiked(video, likesState.likes)
   );
+  const [inHistory, setInHistory] = useState(
+    isInHistory(video, historyState.history)
+  );
+
+  if (!inHistory) {
+    addToHistoryHandler(video, historyDispatch, authState.token);
+    setInHistory(true);
+  }
 
   return (
     <section className={styles.singleVideoPage}>
