@@ -1,4 +1,10 @@
-const logoutHandler = (authDispatch, likesDispatch, historyDispatch, navigate) => {
+const logoutHandler = (
+  authDispatch,
+  likesDispatch,
+  historyDispatch,
+  playlistDispatch,
+  navigate
+) => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
   authDispatch({
@@ -9,6 +15,9 @@ const logoutHandler = (authDispatch, likesDispatch, historyDispatch, navigate) =
   });
   historyDispatch({
     type: "CLEAR_HISTORY",
+  });
+  playlistDispatch({
+    type: "CLEAR_PLAYLIST",
   });
   alert("Logout Successful");
   navigate("/");

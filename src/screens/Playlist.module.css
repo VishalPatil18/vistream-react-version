@@ -22,15 +22,13 @@
 .addNewPlaylist {
   align-items: center;
   background-color: var(--secondary-theme-color);
-  border-radius: var(--br-lg);
-  border: none;
+  border: 1px solid white;
   color: white;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
-  font-size: var(--fs-xl-2);
-  gap: var(--space-xxs);
-  height: 200px;
+  font-size: var(--fs-md-1);
+  gap: var(--space-xs);
+  height: 60px;
   justify-content: center;
   position: relative;
   transition: box-shadow 0.2s ease-in;

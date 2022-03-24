@@ -4,5 +4,6 @@ export { Home } from "./Home";
 export { Liked } from "./Liked";
 export { Playlist } from "./Playlist";
 export { Settings } from "./Settings";
+export { SinglePlaylistPage } from "./SinglePlaylistPage";
 export { SingleVideoPage } from "./SingleVideoPage";
 export { Watchlater } from "./Watchlater";

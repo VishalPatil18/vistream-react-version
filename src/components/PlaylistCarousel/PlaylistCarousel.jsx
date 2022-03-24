@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { PlaylistCard } from "../../components";
-import { categories } from "../../backend/db/categories";
 import styles from "./PlaylistCarousel.module.css";
 
-const PlaylistCarousel = () => {
+const PlaylistCarousel = ({ playlists }) => {
   return (
     <section>
       <div className={styles.headingWrapper}>
@@ -17,12 +16,14 @@ const PlaylistCarousel = () => {
         </Link>
       </div>
       <div className={styles.carousel}>
-        {categories.map((item) => (
+        {playlists.map((playlist) => (
           <PlaylistCard
-            key={item._id}
-            imageSrc={item.imageSrc}
-            title={item.categoryName}
-            videos={item.likes}
+            key={playlist._id}
+            playlistId={playlist._id}
+            title={playlist.title}
+            videos={playlist.videos}
+            description={playlist.description}
+            page={"playlist"}
           />
         ))}
       </div>

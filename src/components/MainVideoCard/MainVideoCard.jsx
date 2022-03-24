@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useAuth, useLikes, useComponents } from "../../context";
 import { icons, isLiked, likesHandler } from "../../utilities";
-import styles from "./MainVideoCard.module.css";
+import { PlaylistMenu } from "../../components";
 import { Link } from "react-router-dom";
+import styles from "./MainVideoCard.module.css";
 
 const MainVideoCard = ({ video }) => {
   const { authState } = useAuth();
   const { likesState, likesDispatch } = useLikes();
   const { componentsDispatch } = useComponents();
   const [liked, setLiked] = useState(isLiked(video, likesState.likes));
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <article className={styles.card}>
@@ -38,8 +40,18 @@ const MainVideoCard = ({ video }) => {
             <button className={styles.button}>
               <Icon icon={icons.bookmark} />
             </button>
-            <button className={styles.button}>
+            <button
+              className={styles.button}
+              onClick={() => setIsOpen((prevState) => !prevState)}
+            >
               <Icon icon={icons.addToPlaylist} />
+              <div
+                className={`${styles.playlistMenu} ${
+                  isOpen ? styles.menuOpen : styles.menuClose
+                }`}
+              >
+                <PlaylistMenu video={video} />
+              </div>
             </button>
           </div>
         </div>

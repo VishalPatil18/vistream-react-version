@@ -10,6 +10,7 @@ import {
   Settings,
   SingleVideoPage,
   Explore,
+  SinglePlaylistPage,
 } from "./screens";
 import styles from "./App.module.css";
 
@@ -30,6 +31,10 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/:videoID" element={<SingleVideoPage />} />
+          <Route
+            path="/playlists/:playlistID"
+            element={<SinglePlaylistPage />}
+          />
         </Routes>
         <Footer />
       </section>

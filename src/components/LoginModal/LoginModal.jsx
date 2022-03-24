@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { useAuth, useComponents, useHistory, useLikes } from "../../context";
+import {
+  useAuth,
+  useComponents,
+  useHistory,
+  useLikes,
+  usePlaylists,
+} from "../../context";
 import { guestUser, inputHandler, loginHandler } from "../../utilities";
 import { SignupModal } from "../../components";
 import styles from "./LoginModal.module.css";
@@ -14,6 +20,7 @@ const LoginModal = () => {
   const { componentsDispatch } = useComponents();
   const { historyDispatch } = useHistory();
   const { likesDispatch } = useLikes();
+  const { playlistsDispatch } = usePlaylists();
 
   return (
     <form
@@ -24,6 +31,7 @@ const LoginModal = () => {
           componentsDispatch,
           historyDispatch,
           likesDispatch,
+          playlistsDispatch,
           event
         )
       }

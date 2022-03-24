@@ -1,4 +1,5 @@
 export { CategoryCarousel } from "./CategoryCarousel/CategoryCarousel";
+export { CreatePlaylistModal } from "./CreatePlaylistModal/CreatePlaylistModal";
 export { Drawer } from "./Drawer/Drawer";
 export { DrawerTab } from "./DrawerTab/DrawerTab";
 export { FeaturedVideos } from "./FeaturedVideos/FeaturedVideos";
@@ -13,6 +14,7 @@ export { MainVideoCard } from "./MainVideoCard/MainVideoCard";
 export { Modal } from "./Modal/Modal";
 export { PlaylistCard } from "./PlaylistCard/PlaylistCard";
 export { PlaylistCarousel } from "./PlaylistCarousel/PlaylistCarousel";
+export { PlaylistMenu } from "./PlaylistMenu/PlaylistMenu";
 export { SignupModal } from "./SignupModal/SignupModal";
 export { SmallVideoCard } from "./SmallVideoCard/SmallVideoCard";
 export { TrendingVideoTable } from "./TrendingVideoTable/TrendingVideoTable";

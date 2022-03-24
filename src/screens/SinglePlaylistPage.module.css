@@ -1,0 +1,12 @@
+.body {
+  flex-shrink: 0;
+  height: calc(100vh - 88px);
+  overflow-y: hidden;
+}
+
+.playlistWrapper {
+  display: flex;
+  gap: var(--space-sm);
+  height: calc(100vh - 160px);
+  padding: var(--space-md);
+}

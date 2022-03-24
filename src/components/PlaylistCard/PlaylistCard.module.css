@@ -1,8 +1,9 @@
 .card {
   border-radius: var(--br-lg);
+  color: white;
   cursor: pointer;
   flex-shrink: 0;
-  height: 200px;
+  height: 60px;
   position: relative;
   transition: box-shadow 0.2s ease-in;
   width: 300px;
@@ -31,8 +32,6 @@
 .actionBtnsWrapper {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-  border-top-left-radius: var(--br-lg);
-  border-top-right-radius: var(--br-lg);
   display: none;
   font-size: var(--fs-xl-1);
   gap: var(--space-sm);
@@ -53,7 +52,6 @@
   align-items: center;
   background-color: white;
   bottom: 0;
-  cursor: initial;
   display: flex;
   justify-content: space-between;
   left: 0;
@@ -85,4 +83,15 @@
 .videosCaption {
   font-size: var(--fs-xs-1);
   text-transform: uppercase;
+}
+
+.playBtn {
+  background-color: initial;
+  border: none;
+}
+
+.playBtn > a {
+  align-items: center;
+  color: white;
+  display: flex;
 }
