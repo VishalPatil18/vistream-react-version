@@ -19,7 +19,3 @@
 .mainContent {
   height: fit-content;
 }
-
-iframe {
-  pointer-events: none;
-}
