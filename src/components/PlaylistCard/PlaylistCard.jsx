@@ -28,10 +28,6 @@ const PlaylistCard = ({
             </Link>
           </button>
           <Icon
-            icon={icons.editPlaylist}
-            className={`${styles.actionBtns} ${styles.editPlaylistBtn}`}
-          />
-          <Icon
             icon={icons.delete}
             className={styles.actionBtns}
             onClick={() =>
