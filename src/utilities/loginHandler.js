@@ -1,10 +1,11 @@
-import { loginService, getHistoryService } from "../services";
+import { loginService, getHistoryService, getLikesService } from "../services";
 
 const loginHandler = async (
   login,
   authDispatch,
   componentsDispatch,
   historyDispatch,
+  likesDispatch,
   event
 ) => {
   try {
@@ -27,6 +28,13 @@ const loginHandler = async (
         type: "INITIAL_HISTORY",
         payload: {
           history: responseHistory.data.history,
+        },
+      });
+      const responseLikes = await getLikesService(response.data.encodedToken);
+      likesDispatch({
+        type: "INITIAL_LIKES",
+        payload: {
+          likes: responseLikes.data.likes,
         },
       });
       componentsDispatch({
