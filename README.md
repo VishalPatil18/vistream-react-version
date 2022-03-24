@@ -1,6 +1,6 @@
 <h1 align="center">
   <br />
-  <a href="https://viskart-dev.netlify.app/"><img src="https://raw.githubusercontent.com/VishalPatil18/VISPA-UI/main/assets/VISPA_UI--logo.svg?token=GHSAT0AAAAAABNUG2VVR25CPORFTDXOHBOKYPZHLZA" alt="VISKart" width="200"></a>
+  <a href="https://vistream-react-version.vercel.app/"><img src="https://raw.githubusercontent.com/VishalPatil18/VISPA-UI/main/assets/VISPA_UI--logo.svg?token=GHSAT0AAAAAABNUG2VVR25CPORFTDXOHBOKYPZHLZA" alt="VIStream" width="200"></a>
   <br />
   VIStream
   <br />
@@ -8,23 +8,23 @@
 
 <!-- PROJECT SHIELDS -->
 <p align="center">
-  <a href="https://github.com/VishalPatil18/VISKart/blob/main/LICENSE" target="blank">
-  <img src="https://img.shields.io/github/license/VishalPatil18/VISKart?style=for-the-badge" alt="viskart licence" />
+  <a href="https://github.com/VishalPatil18/vistream-react-version/blob/main/LICENSE" target="blank">
+  <img src="https://img.shields.io/github/license/VishalPatil18/vistream-react-version?style=for-the-badge" alt="vistream licence" />
   </a>
-  <a href="https://github.com/VishalPatil18/VISKart/fork" target="blank">
-  <img src="https://img.shields.io/github/forks/VishalPatil18/VISKart?style=for-the-badge" alt="viskart forks"/>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/fork" target="blank">
+  <img src="https://img.shields.io/github/forks/VishalPatil18/vistream-react-version?style=for-the-badge" alt="vistream forks"/>
   </a>
-  <a href="https://github.com/VishalPatil18/VISKart/stargazers" target="blank">
-  <img src="https://img.shields.io/github/stars/VishalPatil18/VISKart?color=yellow&style=for-the-badge" alt="viskart stars"/>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/stargazers" target="blank">
+  <img src="https://img.shields.io/github/stars/VishalPatil18/vistream-react-version?color=yellow&style=for-the-badge" alt="vistream stars"/>
   </a>
-  <a href="https://github.com/VishalPatil18/VISKart/issues" target="blank">
-  <img src="https://img.shields.io/github/issues/VishalPatil18/VISKart?style=for-the-badge" alt="viskart issues"/>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/issues" target="blank">
+  <img src="https://img.shields.io/github/issues/VishalPatil18/vistream-react-version?style=for-the-badge" alt="vistream issues"/>
   </a>
-  <a href="https://github.com/VishalPatil18/VISKart/pulls" target="blank">
-  <img src="https://img.shields.io/github/issues-pr/VishalPatil18/VISKart?color=important&style=for-the-badge" alt="viskart pull-requests"/>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/pulls" target="blank">
+  <img src="https://img.shields.io/github/issues-pr/VishalPatil18/vistream-react-version?color=important&style=for-the-badge" alt="vistream pull-requests"/>
   </a>
-  <a href="https://github.com/VishalPatil18/VISKart/graphs/code-frequency" target="blank">
-  <img src="https://img.shields.io/tokei/lines/github/VishalPatil18/VISKart?label=total%20lines%20of%20code&color=9cf&style=for-the-badge" alt="viskart total lines of code"/>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/graphs/code-frequency" target="blank">
+  <img src="https://img.shields.io/tokei/lines/github/VishalPatil18/vistream-react-version?label=total%20lines%20of%20code&color=9cf&style=for-the-badge" alt="vistream total lines of code"/>
   </a>
 </p>
 
@@ -34,11 +34,11 @@
 <h3 align="center">A Video Streaming Platform for all types of Computer, PlayStation and X-Box Games and Streamers</h3>
 
 <p align="center">
-  <a href="#">Live Website</a>
+  <a href="https://vistream-react-version.vercel.app/">Live Website</a>
   ·
-  <a href="#">Report Bug</a>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/issues/new/choose">Report Bug</a>
   ·
-  <a href="#">Request Feature</a>
+  <a href="https://github.com/VishalPatil18/vistream-react-version/issues/new/choose">Request Feature</a>
 </p>
 <hr />
 <br />
@@ -63,7 +63,7 @@
 
 ## **🎙 About The Project**
 
-Coming Soon...
+VIStream is a video library for all kind of videos related to video games. One can view videos from video listing page, explore page. One can also like videos, create playlists, add/remove videos from playlists, delete playlists, view their watch history, clear all watch history, and create new account.
 <p align="center">
   <!-- <img width="100%" src="https://raw.githubusercontent.com/VishalPatil18/VISKart/main/assets/walkthrough.gif" alt="viskart walkthrough"/> -->
 </p>
@@ -80,14 +80,34 @@ Coming Soon...
 <!-- KEY FEATURES -->
 
 ## **🎖 Key Features**
-Coming Soon...
+- Auth Management
+   - Login
+   - Signup 
+- Like Management
+   - Like Video
+   - Unlike Video
+   - View all liked videos
+- Playlist Managment
+   - create playlists, 
+   - add/remove videos from playlists,
+   - delete playlists
+   - View all playlists
+   - View single playlist
+- History Management
+   - View watch history
+   - Clear watch history
+   - Remove single video from history
 
 <br />
 
 <!-- BUILT WITH -->
 
 ## **⚙️ Built With**
-Coming Soon...
+- React
+- React Router
+- [Mockbee](https://mockbee.netlify.app/) - for mock backend
+- [VISPA-UI](https://vispaui-docs-development.netlify.app/)
+- ICONIFY
 
 <br />
 
@@ -97,7 +117,7 @@ Coming Soon...
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue [here](#). Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue [here](https://github.com/VishalPatil18/vistream-react-version/issues/new/choose). Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (git checkout -b feature)
@@ -111,12 +131,20 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 ## **🙏 Acknowledgements**
 
-Special Thanks to some amazing people who helped reviewing VISKart.
+Special Thanks to some amazing people who helped reviewing VIStream.
 
-Coming Soon...
 <table>
   <tr>
-    <td><a href="#">Name</a></td>
+    <td><a href="https://github.com/pranshudobhal">Pranshu Dobhal</a></td>    
+    <td><a href="https://github.com/starver20">Amar Narute </a></td>
+    <td><a href="https://github.com/kart-c">Kartikeya Choudhary</a></td>
+    <td><a href="https://github.com/AtulPant2704">Atul Pant</a></td>    
+  </tr>
+  <tr>
+    <td><a href="https://github.com/RakshaPawar108">Raksha Pawar</a></td>
+    <td><a href="https://github.com/AnkurChunekar">Ankur Chunekar</a></td>
+    <td><a href="https://github.com/Kevin-Solomon">Kevin Solomon</a></td>
+    <td><a href="https://github.com/mohammed-sas">Mohammed</a></td>    
   </tr>
 </table>
 
