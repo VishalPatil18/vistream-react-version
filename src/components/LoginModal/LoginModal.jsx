@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth, useComponents } from "../../context";
+import { useAuth, useComponents, useHistory } from "../../context";
 import { guestUser, inputHandler, loginHandler } from "../../utilities";
 import { SignupModal } from "../../components";
 import styles from "./LoginModal.module.css";
@@ -12,11 +12,18 @@ const LoginModal = () => {
 
   const { authDispatch } = useAuth();
   const { componentsDispatch } = useComponents();
+  const { historyDispatch } = useHistory();
 
   return (
     <form
       onSubmit={(event) =>
-        loginHandler(login, authDispatch, componentsDispatch, event)
+        loginHandler(
+          login,
+          authDispatch,
+          componentsDispatch,
+          historyDispatch,
+          event
+        )
       }
     >
       <div className="input input__icons input__premium">

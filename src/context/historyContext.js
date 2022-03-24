@@ -23,7 +23,7 @@ const HistoryProvider = ({ children }) => {
             const response = await getHistoryService(authState.token);
             historyDispatch({
               type: "INITIAL_HISTORY",
-              payload: response.data.history,
+              payload: { history: response.data.history },
             });
           } catch (error) {
             console.log("ERROR: ", error);

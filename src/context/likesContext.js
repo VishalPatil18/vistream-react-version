@@ -23,7 +23,7 @@ const LikesProvider = ({ children }) => {
             const response = await getLikesService(authState.token);
             likesDispatch({
               type: "INITIAL_LIKES",
-              payload: response.data.likes,
+              payload: { likes: response.data.likes },
             });
           } catch (error) {
             console.log("ERROR: ", error);

@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react";
 import { icons, clearHistoryHandler } from "../utilities";
 import { InfoSidebar, HorizontalCardWrapper } from "../components";
-import styles from "./History.module.css";
 import { useAuth, useHistory } from "../context";
 import { Link } from "react-router-dom";
+import styles from "./History.module.css";
 
 const History = () => {
   const { historyState, historyDispatch } = useHistory();
