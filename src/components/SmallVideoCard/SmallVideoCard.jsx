@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
-import { PlaylistMenu } from "../../components";
+import { PlaylistMenu, LoginModal } from "../../components";
 import {
   useAuth,
   useLikes,
@@ -100,7 +100,18 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
           </button>
           <button
             className={styles.menuActionBtn}
-            onClick={() => setIsOpen((prevState) => !prevState)}
+            onClick={() =>
+              authState.token
+                ? setIsOpen((prevState) => !prevState)
+                : componentsDispatch({
+                    type: "MODAL",
+                    payload: {
+                      active: true,
+                      child: <LoginModal />,
+                      title: "Login",
+                    },
+                  })
+            }
           >
             <Icon
               icon={icons.playlist}
