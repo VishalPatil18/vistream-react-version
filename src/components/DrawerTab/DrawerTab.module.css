@@ -2,6 +2,7 @@
   color: white;
   margin: var(--space-xxxs) auto;
   width: 100%;
+  text-transform: capitalize;
 }
 
 .tab:hover {
