@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useAuth, useLikes, useComponents } from "../../context";
 import { icons, isLiked, likesHandler } from "../../utilities";
-import { PlaylistMenu } from "../../components";
+import { PlaylistMenu, LoginModal } from "../../components";
 import { Link } from "react-router-dom";
 import styles from "./MainVideoCard.module.css";
 
@@ -42,7 +42,18 @@ const MainVideoCard = ({ video }) => {
             </button>
             <button
               className={styles.button}
-              onClick={() => setIsOpen((prevState) => !prevState)}
+              onClick={() =>
+                authState.token
+                  ? setIsOpen((prevState) => !prevState)
+                  : componentsDispatch({
+                      type: "MODAL",
+                      payload: {
+                        active: true,
+                        child: <LoginModal />,
+                        title: "Login",
+                      },
+                    })
+              }
             >
               <Icon icon={icons.addToPlaylist} />
               <div

@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../context";
-import { DrawerTab } from "../../components";
+import { Link, useLocation } from "react-router-dom";
+import { useAuth, useComponents } from "../../context";
+import { DrawerTab, LoginModal, CreatePlaylistModal } from "../../components";
 import { tabsList, icons } from "../../utilities";
 import { ASSETS_URL } from "../../constants";
 import styles from "./Drawer.module.css";
 
 const Drawer = () => {
   const { authState } = useAuth();
-  const [currPage, setCurrPage] = useState("Home");
+  const { componentsDispatch } = useComponents();
+  const location = useLocation();
+  const [currPage, setCurrPage] = useState("/");
+
+  useEffect(() => {
+    setCurrPage(location.pathname);
+  }, [location]);
 
   return (
     <div className={styles.drawer}>
@@ -24,14 +30,32 @@ const Drawer = () => {
           key={item.id}
           title={item.title}
           icon={item.icon}
-          active={currPage === item.title ? true : false}
           to={!authState.token && item.isPrivate ? "/" : item.to}
+          active={currPage === item.to ? true : false}
           isPrivate={item.isPrivate}
-          onClicking={() => setCurrPage(item.title)}
         />
       ))}
       <button
         className={`button btn-outline-primary ${styles.createPlaylistBtn}`}
+        onClick={() =>
+          authState.token
+            ? componentsDispatch({
+                type: "MODAL",
+                payload: {
+                  active: true,
+                  child: <CreatePlaylistModal />,
+                  title: "Create Playlist",
+                },
+              })
+            : componentsDispatch({
+                type: "MODAL",
+                payload: {
+                  active: true,
+                  child: <LoginModal />,
+                  title: "Login",
+                },
+              })
+        }
       >
         <Icon icon={icons.plus} />
         Create Playlist

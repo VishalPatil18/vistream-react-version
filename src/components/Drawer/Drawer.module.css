@@ -52,3 +52,23 @@
   background-color: var(--primary);
   color: white;
 }
+
+.playlistMenu {
+  background-color: var(--secondary-theme-color);
+  border-radius: var(--br-xs);
+  flex-direction: column;
+  font-size: var(--fs-xs-1);
+  padding: var(--space-xs);
+  position: absolute;
+  right: 10px;
+  top: 46px;
+  z-index: 5;
+}
+
+.menuOpen {
+  display: flex;
+}
+
+.menuClose {
+  display: none;
+}
