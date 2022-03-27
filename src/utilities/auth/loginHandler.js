@@ -82,13 +82,21 @@ const loginHandler = async (
           child: <Alert action="success" message="Login Successful" />,
         },
       });
-    }
-    if (response.status === 404) {
-      throw new Error(
-        "The email entered is not Registered. Please Enter a valid Email"
-      );
-    } else if (response.status === 401) {
-      throw new Error("Incorrect Password! Please try again.");
+    } else if (response.status === 201) {
+      componentsDispatch({
+        type: "LOADER",
+        payload: {
+          active: false,
+          title: "",
+        },
+      });
+      componentsDispatch({
+        type: "ALERT",
+        payload: {
+          active: true,
+          child: <Alert action="danger" message={"Incorrect Password!"} />,
+        },
+      });
     }
   } catch (error) {
     componentsDispatch({
@@ -98,7 +106,13 @@ const loginHandler = async (
         title: "",
       },
     });
-    alert(error);
+    componentsDispatch({
+      type: "ALERT",
+      payload: {
+        active: true,
+        child: <Alert action="danger" message="User Email not found!" />,
+      },
+    });
   }
 };
 

@@ -7,9 +7,9 @@
   font-size: var(--fs-xs-2);
   padding: var(--space-xs);
   position: fixed;
-  right: 20px;
+  right: var(--space-md);
   text-align: left;
-  top: 20px;
+  top: 100px;
   width: min(400px, 90%);
   z-index: 99;
 }

@@ -50,13 +50,6 @@ const signupHandler = async (
         },
       });
     }
-    if (response.status === 404) {
-      throw new Error(
-        "The email entered is not Registered. Please Enter a valid Email"
-      );
-    } else if (response.status === 401) {
-      throw new Error("Incorrect Password! Please try again.");
-    }
   } catch (error) {
     componentsDispatch({
       type: "LOADER",
@@ -69,7 +62,12 @@ const signupHandler = async (
       type: "ALERT",
       payload: {
         active: true,
-        child: <Alert action="danger" message={error} />,
+        child: (
+          <Alert
+            action="danger"
+            message="User already exists! Please try again with a different E-mail id"
+          />
+        ),
       },
     });
   }
