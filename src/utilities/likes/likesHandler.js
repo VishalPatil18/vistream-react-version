@@ -1,5 +1,5 @@
-import { addToLikesHandler, removeFromLikesHandler } from "../utilities";
-import { LoginModal } from "../components";
+import { addToLikesHandler, removeFromLikesHandler } from "../../utilities";
+import { LoginModal } from "../../components";
 
 const likesHandler = (
   token,
@@ -12,7 +12,12 @@ const likesHandler = (
   if (token) {
     if (liked) {
       setLiked(false);
-      return removeFromLikesHandler(video._id, likesDispatch, token);
+      return removeFromLikesHandler(
+        video._id,
+        likesDispatch,
+        componentsDispatch,
+        token
+      );
     } else {
       setLiked(true);
       return addToLikesHandler(video, likesDispatch, token);

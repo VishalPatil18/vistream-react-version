@@ -1,4 +1,4 @@
-import { icons } from "../utilities";
+import { icons } from "./icons";
 
 const tabsList = [
   {

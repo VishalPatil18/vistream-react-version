@@ -13,12 +13,14 @@ const PlaylistMenu = ({ video }) => {
       {playlistsState.playlists.length > 0
         ? playlistsState.playlists.map((playlist) => (
             <button
+              key={playlist._id}
               className={styles.playlistBtns}
               onClick={() =>
                 addVideoToPlaylistsHandler(
                   playlist._id,
                   video,
                   playlistsDispatch,
+                  componentsDispatch,
                   authState.token
                 )
               }

@@ -56,14 +56,14 @@ const MainVideoCard = ({ video }) => {
               }
             >
               <Icon icon={icons.addToPlaylist} />
-              <div
-                className={`${styles.playlistMenu} ${
-                  isOpen ? styles.menuOpen : styles.menuClose
-                }`}
-              >
-                <PlaylistMenu video={video} />
-              </div>
             </button>
+            <div
+              className={`${styles.playlistMenu} ${
+                isOpen ? styles.menuOpen : styles.menuClose
+              }`}
+            >
+              <PlaylistMenu video={video} />
+            </div>
           </div>
         </div>
       </div>

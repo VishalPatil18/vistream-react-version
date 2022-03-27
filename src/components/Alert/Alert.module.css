@@ -1,0 +1,50 @@
+.alert {
+  align-items: center;
+  border-radius: var(--br-xs);
+  box-shadow: var(--bs-md);
+  color: white;
+  display: flex;
+  font-size: var(--fs-xs-2);
+  padding: var(--space-xs);
+  position: fixed;
+  right: var(--space-md);
+  text-align: left;
+  top: var(--space-md);
+  width: min(400px, 90%);
+  z-index: 99;
+}
+
+.closeIcon {
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.leftIcon {
+  margin-right: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.rightIcon {
+  cursor: pointer;
+  height: 20px;
+  margin-left: auto;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.info {
+  background-color: var(--primary);
+}
+
+.success {
+  background-color: var(--success);
+}
+
+.danger {
+  background-color: var(--danger);
+}
+
+.warning {
+  background-color: var(--warning);
+  color: var(--dark);
+}

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useComponents } from "./context";
-import { Drawer, GreetingCard, Footer, Modal } from "./components";
+import { Drawer, GreetingCard, Footer, Modal, Loader } from "./components";
 import {
   Home,
   Liked,
@@ -19,6 +19,16 @@ function App() {
 
   return (
     <div className={styles.app}>
+      {componentsState.modal.active ? (
+        <Modal title={componentsState.modal.title}>
+          {componentsState.modal.child}
+        </Modal>
+      ) : null}
+      {componentsState.loader.active ? (
+        <Loader title={componentsState.loader.title} />
+      ) : null}
+      {componentsState.alert.active ? <>{componentsState.alert.child}</> : null}
+
       <Drawer />
       <section className={styles.mainBody}>
         <GreetingCard />
@@ -38,11 +48,6 @@ function App() {
         </Routes>
         <Footer />
       </section>
-      {componentsState.modal.active ? (
-        <Modal title={componentsState.modal.title}>
-          {componentsState.modal.child}
-        </Modal>
-      ) : null}
     </div>
   );
 }

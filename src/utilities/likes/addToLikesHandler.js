@@ -1,4 +1,4 @@
-import { addToLikesService } from "../services";
+import { addToLikesService } from "../../services";
 
 const addToLikesHandler = async (video, likesDispatch, token) => {
   try {

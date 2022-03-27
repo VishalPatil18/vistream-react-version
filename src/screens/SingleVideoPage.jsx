@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useParams } from "react-router-dom";
 import { HorizontalCardWrapper, PlaylistMenu } from "../components";
@@ -47,10 +47,12 @@ const SingleVideoPage = () => {
     isInHistory(video, historyState.history)
   );
 
-  if (!inHistory) {
-    addToHistoryHandler(video, historyDispatch, authState.token);
-    setInHistory(true);
-  }
+  useEffect(() => {
+    if (!inHistory) {
+      addToHistoryHandler(video, historyDispatch, authState.token);
+      setInHistory(true);
+    }
+  }, []);
 
   return (
     <section className={styles.singleVideoPage}>
@@ -62,7 +64,6 @@ const SingleVideoPage = () => {
             src={`https://www.youtube.com/embed/${youtubeID}`}
             title="YouTube video player"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen="allowfullscreen"
           ></iframe>
         </div>
@@ -106,14 +107,14 @@ const SingleVideoPage = () => {
                 >
                   <Icon icon={icons.addToPlaylist} />
                   <p className={styles.value}>Save</p>
-                  <div
-                    className={`${styles.playlistMenu} ${
-                      isOpen ? styles.menuOpen : styles.menuClose
-                    }`}
-                  >
-                    <PlaylistMenu video={video} />
-                  </div>
                 </button>
+                <div
+                  className={`${styles.playlistMenu} ${
+                    isOpen ? styles.menuOpen : styles.menuClose
+                  }`}
+                >
+                  <PlaylistMenu video={video} />
+                </div>
                 <span className={`${styles.valueWrapper}`}>
                   <Icon icon={icons.share2} />
                   <p className={styles.value}>Share</p>

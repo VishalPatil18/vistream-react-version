@@ -3,7 +3,8 @@ import {
   getHistoryService,
   getLikesService,
   getPlaylistsService,
-} from "../services";
+} from "../../services";
+import { Alert } from "../../components";
 
 const loginHandler = async (
   login,
@@ -14,8 +15,23 @@ const loginHandler = async (
   playlistsDispatch,
   event
 ) => {
+  event.preventDefault();
+  componentsDispatch({
+    type: "MODAL",
+    payload: {
+      active: false,
+      child: "",
+      title: "",
+    },
+  });
+  componentsDispatch({
+    type: "LOADER",
+    payload: {
+      active: true,
+      title: "Logging In...",
+    },
+  });
   try {
-    event.preventDefault();
     const response = await loginService(login);
     if (response.status === 200) {
       localStorage.setItem("token", response.data.encodedToken);
@@ -53,24 +69,50 @@ const loginHandler = async (
         },
       });
       componentsDispatch({
-        type: "MODAL",
+        type: "LOADER",
         payload: {
           active: false,
-          child: "",
           title: "",
         },
       });
-      alert("Login Successful");
-    }
-    if (response.status === 404) {
-      throw new Error(
-        "The email entered is not Registered. Please Enter a valid Email"
-      );
-    } else if (response.status === 401) {
-      throw new Error("Incorrect Password! Please try again.");
+      componentsDispatch({
+        type: "ALERT",
+        payload: {
+          active: true,
+          child: <Alert action="success" message="Login Successful" />,
+        },
+      });
+    } else if (response.status === 201) {
+      componentsDispatch({
+        type: "LOADER",
+        payload: {
+          active: false,
+          title: "",
+        },
+      });
+      componentsDispatch({
+        type: "ALERT",
+        payload: {
+          active: true,
+          child: <Alert action="danger" message={"Incorrect Password!"} />,
+        },
+      });
     }
   } catch (error) {
-    alert(error);
+    componentsDispatch({
+      type: "LOADER",
+      payload: {
+        active: false,
+        title: "",
+      },
+    });
+    componentsDispatch({
+      type: "ALERT",
+      payload: {
+        active: true,
+        child: <Alert action="danger" message="User Email not found!" />,
+      },
+    });
   }
 };
 

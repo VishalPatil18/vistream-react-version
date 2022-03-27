@@ -20,7 +20,11 @@ const WatchlaterVideos = () => {
       </div>
       <div className={styles.table}>
         {videoList.map((video) => (
-          <SmallVideoCard key={video._id} video={video} page="watchlater" />
+          <SmallVideoCard
+            key={`watchLaterVideo-${video._id}`}
+            video={video}
+            page="watchlater"
+          />
         ))}
       </div>
     </section>

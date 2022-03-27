@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router";
-import { useAuth, useHistory, useLikes, usePlaylists } from "../context";
+import {
+  useAuth,
+  useComponents,
+  useHistory,
+  useLikes,
+  usePlaylists,
+} from "../context";
 import { logoutHandler } from "../utilities";
 import styles from "./Settings.module.css";
 
@@ -8,6 +14,7 @@ const Settings = () => {
   const { likesDispatch } = useLikes();
   const { historyDispatch } = useHistory();
   const { playlistsDispatch } = usePlaylists();
+  const { componentsDispatch } = useComponents();
   const navigate = useNavigate();
 
   return (
@@ -23,6 +30,7 @@ const Settings = () => {
                 likesDispatch,
                 historyDispatch,
                 playlistsDispatch,
+                componentsDispatch,
                 navigate
               )
             }

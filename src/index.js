@@ -19,9 +19,9 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <DataProvider>
-          <ComponentsProvider>
+      <ComponentsProvider>
+        <AuthProvider>
+          <DataProvider>
             <LikesProvider>
               <HistoryProvider>
                 <PlaylistsProvider>
@@ -29,9 +29,9 @@ ReactDOM.render(
                 </PlaylistsProvider>
               </HistoryProvider>
             </LikesProvider>
-          </ComponentsProvider>
-        </DataProvider>
-      </AuthProvider>
+          </DataProvider>
+        </AuthProvider>
+      </ComponentsProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
