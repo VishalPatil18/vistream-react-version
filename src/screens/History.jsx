@@ -1,12 +1,13 @@
 import { Icon } from "@iconify/react";
 import { icons, clearHistoryHandler } from "../utilities";
 import { InfoSidebar, HorizontalCardWrapper } from "../components";
-import { useAuth, useHistory } from "../context";
+import { useAuth, useComponents, useHistory } from "../context";
 import { Link } from "react-router-dom";
 import styles from "./History.module.css";
 
 const History = () => {
   const { historyState, historyDispatch } = useHistory();
+  const { componentsDispatch } = useComponents();
   const { authState } = useAuth();
 
   return (
@@ -17,7 +18,13 @@ const History = () => {
           className={`button btn-solid-danger ${styles.clearBtn} ${
             historyState.history.length <= 0 ? styles.disabledBtn : null
           }`}
-          onClick={() => clearHistoryHandler(historyDispatch, authState.token)}
+          onClick={() =>
+            clearHistoryHandler(
+              historyDispatch,
+              componentsDispatch,
+              authState.token
+            )
+          }
         >
           <Icon icon={icons.delete} />
           Clear History

@@ -1,3 +1,4 @@
+export { Alert } from "./Alert/Alert";
 export { CategoryCarousel } from "./CategoryCarousel/CategoryCarousel";
 export { CreatePlaylistModal } from "./CreatePlaylistModal/CreatePlaylistModal";
 export { Drawer } from "./Drawer/Drawer";
@@ -9,6 +10,7 @@ export { GamesCategoryCard } from "./GamesCategoryCard/GamesCategoryCard";
 export { GreetingCard } from "./GreetingCard/GreetingCard";
 export { HorizontalCardWrapper } from "./HorizontalCardWrapper/HorizontalCardWrapper";
 export { InfoSidebar } from "./InfoSidebar/InfoSidebar";
+export { Loader } from "./Loader/Loader";
 export { LoginModal } from "./LoginModal/LoginModal";
 export { MainVideoCard } from "./MainVideoCard/MainVideoCard";
 export { Modal } from "./Modal/Modal";

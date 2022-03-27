@@ -65,6 +65,7 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
                   return removeFromHistoryHandler(
                     video._id,
                     historyDispatch,
+                    componentsDispatch,
                     authState.token
                   );
                 case "playlist":
@@ -72,6 +73,7 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
                     playlistID,
                     video._id,
                     playlistsDispatch,
+                    componentsDispatch,
                     authState.token
                   );
               }
@@ -118,14 +120,14 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
               className={`${styles.menuActionBtnIcon} ${styles.addToPlaylistIcon}`}
             />
             Save to playlist
-            <div
-              className={`${styles.playlistMenu} ${
-                isOpen ? styles.menuOpen : styles.menuClose
-              }`}
-            >
-              <PlaylistMenu video={video} />
-            </div>
           </button>
+          <div
+            className={`${styles.playlistMenu} ${
+              isOpen ? styles.menuOpen : styles.menuClose
+            }`}
+          >
+            <PlaylistMenu video={video} />
+          </div>
         </div>
       </div>
       <Link to={`/${video.youtubeID}`} className={styles.body}>

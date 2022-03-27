@@ -3,7 +3,8 @@ import {
   getHistoryService,
   getLikesService,
   getPlaylistsService,
-} from "../services";
+} from "../../services";
+import { Alert } from "../../components";
 
 const loginHandler = async (
   login,
@@ -14,8 +15,23 @@ const loginHandler = async (
   playlistsDispatch,
   event
 ) => {
+  event.preventDefault();
+  componentsDispatch({
+    type: "MODAL",
+    payload: {
+      active: false,
+      child: "",
+      title: "",
+    },
+  });
+  componentsDispatch({
+    type: "LOADER",
+    payload: {
+      active: true,
+      title: "Logging In...",
+    },
+  });
   try {
-    event.preventDefault();
     const response = await loginService(login);
     if (response.status === 200) {
       localStorage.setItem("token", response.data.encodedToken);
@@ -53,14 +69,19 @@ const loginHandler = async (
         },
       });
       componentsDispatch({
-        type: "MODAL",
+        type: "LOADER",
         payload: {
           active: false,
-          child: "",
           title: "",
         },
       });
-      alert("Login Successful");
+      componentsDispatch({
+        type: "ALERT",
+        payload: {
+          active: true,
+          child: <Alert action="success" message="Login Successful" />,
+        },
+      });
     }
     if (response.status === 404) {
       throw new Error(
@@ -70,6 +91,13 @@ const loginHandler = async (
       throw new Error("Incorrect Password! Please try again.");
     }
   } catch (error) {
+    componentsDispatch({
+      type: "LOADER",
+      payload: {
+        active: false,
+        title: "",
+      },
+    });
     alert(error);
   }
 };

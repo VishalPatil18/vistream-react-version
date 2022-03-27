@@ -1,16 +1,25 @@
-export { addToHistoryService } from "./addToHistory.service";
-export { addToLikesService } from "./addToLikes.service";
-export { addToPlaylistsService } from "./addToPlaylists.service";
-export { addVideoToPlaylistService } from "./addVideoToPlaylist.service";
-export { clearHistoryService } from "./clearHistory.service";
-export { getHistoryService } from "./getHistory.service";
-export { getLikesService } from "./getLikes.service";
-export { getPlaylistsService } from "./getPlaylists.service";
-export { getSinglePlaylistsService } from "./getSinglePlaylist.service";
-export { getVideosService } from "./getVideos.service";
-export { loginService } from "./login.service";
-export { removeFromHistoryService } from "./removeFromHistory.service";
-export { removeFromLikesService } from "./removeFromLikes.service";
-export { removeFromPlaylistsService } from "./removeFromPlaylists.service";
-export { removeVideoFromPlaylistsService } from "./removeVideoFromPlaylist.service";
-export { signupService } from "./signup.service";
+export { loginService, signupService } from "./auth";
+
+export {
+  addToHistoryService,
+  clearHistoryService,
+  getHistoryService,
+  removeFromHistoryService,
+} from "./history";
+
+export {
+  addToLikesService,
+  getLikesService,
+  removeFromLikesService,
+} from "./likes";
+
+export { getVideosService } from "./misc";
+
+export {
+  addToPlaylistsService,
+  addVideoToPlaylistService,
+  getPlaylistsService,
+  getSinglePlaylistsService,
+  removeFromPlaylistsService,
+  removeVideoFromPlaylistsService,
+} from "./playlists";

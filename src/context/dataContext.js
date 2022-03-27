@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useComponents } from "../context";
 import { getVideosService } from "../services";
 
 const DataContext = createContext({
@@ -8,13 +9,35 @@ const DataContext = createContext({
 
 const DataProvider = ({ children }) => {
   const [videosData, setVideosData] = useState([]);
+  const { componentsDispatch } = useComponents();
 
   useEffect(() => {
+    componentsDispatch({
+      type: "LOADER",
+      payload: {
+        active: true,
+        title: "I'm Working",
+      },
+    });
     (async () => {
       try {
         const response = await getVideosService();
         setVideosData(response.data.videos);
+        componentsDispatch({
+          type: "LOADER",
+          payload: {
+            active: false,
+            title: "",
+          },
+        });
       } catch (error) {
+        componentsDispatch({
+          type: "LOADER",
+          payload: {
+            active: false,
+            title: "",
+          },
+        });
         console.log("ERROR: ", error);
       }
     })();

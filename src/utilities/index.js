@@ -1,19 +1,24 @@
-export { addToHistoryHandler } from "./addToHistoryHandler";
-export { addToLikesHandler } from "./addToLikesHandler";
-export { addToPlaylistsHandler } from "./addToPlaylistsHandler";
-export { addVideoToPlaylistsHandler } from "./addVideoToPlaylistHandler";
-export { clearHistoryHandler } from "./clearHistoryHandler";
-export { guestUser } from "./guestUser";
-export { icons } from "./icons";
-export { inputHandler } from "./inputHandler";
-export { isInHistory } from "./isInHistory";
-export { isLiked } from "./isLiked";
-export { likesHandler } from "./likesHandler";
-export { loginHandler } from "./loginHandler";
-export { logoutHandler } from "./logoutHandler";
-export { removeFromHistoryHandler } from "./removeFromHistoryHandler";
-export { removeFromLikesHandler } from "./removeFromLikesHandler";
-export { removeFromPlaylistsHandler } from "./removeFromPlaylistsHandler";
-export { removeVideoFromPlaylistsHandler } from "./removeVideoFromPlaylistHandler";
-export { signupHandler } from "./signupHandler";
-export { tabsList } from "./tabsList";
+export { loginHandler, logoutHandler, guestUser, signupHandler } from "./auth";
+
+export {
+  clearHistoryHandler,
+  addToHistoryHandler,
+  isInHistory,
+  removeFromHistoryHandler,
+} from "./history";
+
+export {
+  addToLikesHandler,
+  isLiked,
+  likesHandler,
+  removeFromLikesHandler,
+} from "./likes";
+
+export { icons, inputHandler, tabsList } from "./misc";
+
+export {
+  addToPlaylistsHandler,
+  addVideoToPlaylistsHandler,
+  removeFromPlaylistsHandler,
+  removeVideoFromPlaylistsHandler,
+} from "./playlists";

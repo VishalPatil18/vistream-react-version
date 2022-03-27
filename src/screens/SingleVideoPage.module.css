@@ -22,6 +22,10 @@
   margin-top: var(--space-lg);
 }
 
+.description {
+  width: 100%;
+}
+
 .trendingVideos {
   background-color: var(--dark);
   border-radius: var(--br-md);
@@ -30,7 +34,8 @@
   padding: var(--space-xs);
   scrollbar-color: var(--primary) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
-  width: 70%;
+  width: min(400px, 95%);
+  flex-shrink: 0;
 }
 
 .trendingVideos::-webkit-scrollbar {
@@ -130,6 +135,7 @@
   color: white;
   display: flex;
   font-size: var(--fs-sm-2);
+  position: relative;
 }
 
 .value {

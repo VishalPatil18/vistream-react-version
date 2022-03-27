@@ -5,6 +5,7 @@ import {
   TrendingVideoTable,
   WatchlaterVideos,
   FeaturedVideos,
+  Alert,
 } from "../components";
 import { Link } from "react-router-dom";
 import { usePlaylists } from "../context";

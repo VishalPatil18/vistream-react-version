@@ -20,7 +20,11 @@ const TrendingVideoTable = () => {
       </div>
       <div className={styles.table}>
         {videoList.map((video) => (
-          <SmallVideoCard key={video._id} video={video} page="watchlater" />
+          <SmallVideoCard
+            key={`trendingVideo-${video._id}`}
+            video={video}
+            page="watchlater"
+          />
         ))}
       </div>
     </section>

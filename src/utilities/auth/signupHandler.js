@@ -1,4 +1,5 @@
-import { signupService } from "../services";
+import { Alert } from "../../components";
+import { signupService } from "../../services";
 
 const signupHandler = async (
   signup,
@@ -8,6 +9,21 @@ const signupHandler = async (
 ) => {
   try {
     event.preventDefault();
+    componentsDispatch({
+      type: "MODAL",
+      payload: {
+        active: false,
+        child: "",
+        title: "",
+      },
+    });
+    componentsDispatch({
+      type: "LOADER",
+      payload: {
+        active: true,
+        title: "Signing Up",
+      },
+    });
     const response = await signupService(signup);
     if (response.status === 201) {
       localStorage.setItem("token", response.data.encodedToken);
@@ -20,14 +36,19 @@ const signupHandler = async (
         },
       });
       componentsDispatch({
-        type: "MODAL",
+        type: "LOADER",
         payload: {
           active: false,
-          child: "",
           title: "",
         },
       });
-      alert("Signup Successful");
+      componentsDispatch({
+        type: "ALERT",
+        payload: {
+          active: true,
+          child: <Alert action="success" message="Signup Successful" />,
+        },
+      });
     }
     if (response.status === 404) {
       throw new Error(
@@ -37,7 +58,20 @@ const signupHandler = async (
       throw new Error("Incorrect Password! Please try again.");
     }
   } catch (error) {
-    alert(error);
+    componentsDispatch({
+      type: "LOADER",
+      payload: {
+        active: false,
+        title: "",
+      },
+    });
+    componentsDispatch({
+      type: "ALERT",
+      payload: {
+        active: true,
+        child: <Alert action="danger" message={error} />,
+      },
+    });
   }
 };
 

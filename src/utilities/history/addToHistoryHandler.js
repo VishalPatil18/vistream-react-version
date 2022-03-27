@@ -1,9 +1,8 @@
-import { addToHistoryService } from "../services";
+import { addToHistoryService } from "../../services";
 
 const addToHistoryHandler = async (video, historyDispatch, token) => {
   try {
     const response = await addToHistoryService(video, token);
-    console.log(response);
     if (response.status === 201) {
       historyDispatch({
         type: "ADD_TO_HISTORY",

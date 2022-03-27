@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { icons, removeFromPlaylistsHandler } from "../../utilities";
 import styles from "./PlaylistCard.module.css";
-import { useAuth, usePlaylists } from "../../context";
+import { useAuth, useComponents, usePlaylists } from "../../context";
 
 const PlaylistCard = ({
   playlistId,
@@ -12,6 +12,7 @@ const PlaylistCard = ({
   page = "",
 }) => {
   const { playlistsDispatch } = usePlaylists();
+  const { componentsDispatch } = useComponents();
   const { authState } = useAuth();
 
   return (
@@ -34,6 +35,7 @@ const PlaylistCard = ({
               removeFromPlaylistsHandler(
                 playlistId,
                 playlistsDispatch,
+                componentsDispatch,
                 authState.token
               )
             }
