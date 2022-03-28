@@ -1,35 +1,13 @@
-import { Icon } from "@iconify/react";
-import { icons, clearHistoryHandler } from "../utilities";
 import { InfoSidebar, HorizontalCardWrapper } from "../components";
-import { useAuth, useComponents, useHistory } from "../context";
+import { useHistory } from "../context";
 import { Link } from "react-router-dom";
 import styles from "./History.module.css";
 
 const History = () => {
-  const { historyState, historyDispatch } = useHistory();
-  const { componentsDispatch } = useComponents();
-  const { authState } = useAuth();
+  const { historyState } = useHistory();
 
   return (
     <section className={styles.body}>
-      <div className={styles.headingWrapper}>
-        <h2 className={styles.heading}>Your Watch History</h2>
-        <button
-          className={`button btn-solid-danger ${styles.clearBtn} ${
-            historyState.history.length <= 0 ? styles.disabledBtn : null
-          }`}
-          onClick={() =>
-            clearHistoryHandler(
-              historyDispatch,
-              componentsDispatch,
-              authState.token
-            )
-          }
-        >
-          <Icon icon={icons.delete} />
-          Clear History
-        </button>
-      </div>
       <div className={styles.historyWrapper}>
         <InfoSidebar
           page="Watch History"

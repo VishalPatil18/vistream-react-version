@@ -23,7 +23,7 @@ export const signupHandler = function (schema, request) {
         422,
         {},
         {
-          errors: ["Unprocessable Entity. Email Already Exists."],
+          errors: ["Email Already Exists!"],
         }
       );
     }
@@ -67,7 +67,7 @@ export const loginHandler = function (schema, request) {
       return new Response(
         404,
         {},
-        { errors: ["The email you entered is not Registered. Not Found error"] }
+        { errors: ["The email you entered is not Registered!"] }
       );
     }
     if (password === foundUser.password) {
@@ -78,12 +78,12 @@ export const loginHandler = function (schema, request) {
       foundUser.password = undefined;
       return new Response(200, {}, { foundUser, encodedToken });
     }
-    new Response(
+    return new Response(
       401,
       {},
       {
         errors: [
-          "The credentials you entered are invalid. Unauthorized access error.",
+          "Incorrect Password!",
         ],
       }
     );

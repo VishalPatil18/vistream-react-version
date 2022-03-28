@@ -3,7 +3,7 @@
   color: white;
   cursor: pointer;
   flex-shrink: 0;
-  height: 60px;
+  height: 6rem;
   position: relative;
   transition: box-shadow 0.2s ease-in;
   width: 300px;
@@ -11,7 +11,7 @@
 
 .playlistPageStyling {
   cursor: default;
-  width: 100%;
+  width: 50%;
 }
 
 .actionBtns {
@@ -94,4 +94,23 @@
   align-items: center;
   color: white;
   display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .playlistPageStyling {
+    cursor: default;
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .playlistPageStyling {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .playlistPageStyling {
+    width: 75%;
+  }
 }

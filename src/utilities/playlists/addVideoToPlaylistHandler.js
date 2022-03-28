@@ -32,8 +32,6 @@ const addVideoToPlaylistsHandler = async (
           title: "",
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later!");
     }
   } catch (error) {
     componentsDispatch({
@@ -48,7 +46,7 @@ const addVideoToPlaylistsHandler = async (
       payload: {
         active: true,
         child: (
-          <Alert action="warning" message="Video Already Present in playlist" />
+          <Alert action="warning" message={error.response.data.errors[0]} />
         ),
       },
     });

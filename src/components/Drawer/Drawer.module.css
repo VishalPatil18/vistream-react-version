@@ -8,7 +8,11 @@
   padding: var(--space-sm);
   scrollbar-color: var(--primary) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
-  width: 250px;
+  width: 25rem;
+}
+
+.isOpen {
+  display: flex;
 }
 
 .drawer::-webkit-scrollbar {
@@ -39,36 +43,101 @@
   font-weight: var(--fw-3);
 }
 
-.createPlaylistBtn {
-  background-color: initial;
-  color: var(--primary);
+.profileBadge {
+  align-items: center;
+  background-color: #eb1463;
+  box-shadow: 0 2px 20px 0 rgba(235, 20, 99, 0.8);
   display: flex;
-  gap: var(--space-xxs);
+  font-size: var(--fs-md-2);
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding: var(--space-xxs);
+}
+
+.profileBadge:hover {
+  box-shadow: 0 5px 30px 0 rgba(235, 20, 99, 0.95);
+}
+
+.profileBadge > a {
+  align-items: center;
+  color: white;
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.profileBadge svg {
+  background-color: var(--dark);
+  border-radius: var(--br-full);
+  color: white;
+  font-size: var(--fs-xl-2);
+  height: var(--space-xl);
+  padding: var(--space-xxxs);
+  width: var(--space-xl);
+}
+
+.loginBtn {
+  align-items: center;
+  display: flex;
+  font-size: var(--fs-md-2);
+  gap: var(--space-xxxs);
   justify-content: center;
   margin-top: auto;
 }
 
-.createPlaylistBtn:hover {
-  background-color: var(--primary);
-  color: white;
+.loginBtn > svg {
+  font-size: var(--fs-lg-2);
 }
 
-.playlistMenu {
+.mobileDrawer {
+  align-items: center;
   background-color: var(--secondary-theme-color);
-  border-radius: var(--br-xs);
-  flex-direction: column;
-  font-size: var(--fs-xs-1);
-  padding: var(--space-xs);
-  position: absolute;
-  right: 10px;
-  top: 46px;
-  z-index: 5;
+  border-top: 1px solid var(--grey-5);
+  bottom: 0;
+  display: none;
+  font-size: var(--fs-md-1);
+  height: 60px;
+  justify-content: space-evenly;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
-.menuOpen {
+.mobileDrawer > button {
+  background-color: initial;
+  border-radius: var(--br-full);
+  border: none;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.mobileDrawer a {
+  color: white;
   display: flex;
 }
 
-.menuClose {
-  display: none;
+.mobileDrawer .active {
+  background-color: var(--primary);
+}
+
+.largeBtn {
+  font-size: var(--fs-lg-2);
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 768px) {
+  .drawer {
+    display: none;
+  }
+
+  .mobileDrawer {
+    display: flex;
+  }
 }

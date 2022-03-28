@@ -3,7 +3,6 @@ export { loginHandler, logoutHandler, guestUser, signupHandler } from "./auth";
 export {
   clearHistoryHandler,
   addToHistoryHandler,
-  isInHistory,
   removeFromHistoryHandler,
 } from "./history";
 
@@ -22,3 +21,5 @@ export {
   removeFromPlaylistsHandler,
   removeVideoFromPlaylistsHandler,
 } from "./playlists";
+
+export { getSingleVideoHandler } from "./videos";

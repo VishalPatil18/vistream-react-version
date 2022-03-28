@@ -1,58 +1,41 @@
 import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useParams } from "react-router-dom";
+import useOnclickOutside from "react-cool-onclickoutside";
 import { HorizontalCardWrapper, PlaylistMenu } from "../components";
 import { videos } from "../backend/db/videos";
 import {
   addToHistoryHandler,
   icons,
-  isInHistory,
   isLiked,
   likesHandler,
+  getSingleVideoHandler,
 } from "../utilities";
-import {
-  useAuth,
-  useComponents,
-  useData,
-  useHistory,
-  useLikes,
-} from "../context";
+import { useAuth, useComponents, useHistory, useLikes } from "../context";
 import styles from "./SingleVideoPage.module.css";
 
 const SingleVideoPage = () => {
-  const { videosData } = useData();
   const { videoID } = useParams();
   const { authState } = useAuth();
   const { componentsDispatch } = useComponents();
+  const { historyDispatch } = useHistory();
   const { likesState, likesDispatch } = useLikes();
-  const { historyState, historyDispatch } = useHistory();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isPlaylistMenuOpen, setIsPlaylistMenuOpen] = useState(false);
+  const [video, setVideo] = useState({});
   const videoList = videos.slice(8, 22);
-  const video = videosData.find((currVideo) => currVideo.youtubeID === videoID);
-  const {
-    youtubeID,
-    title,
-    views,
-    likes,
-    channelThumbnail,
-    channelName,
-    channelLink,
-    subscribers,
-    description,
-  } = video;
-  const [isVideoLiked, setIsVideoLiked] = useState(
-    isLiked(video, likesState.likes)
-  );
-  const [inHistory, setInHistory] = useState(
-    isInHistory(video, historyState.history)
-  );
+  const [isVideoLiked, setIsLiked] = useState(false);
+
+  const ref = useOnclickOutside(() => {
+    setIsPlaylistMenuOpen(false);
+  });
 
   useEffect(() => {
-    if (!inHistory) {
-      addToHistoryHandler(video, historyDispatch, authState.token);
-      setInHistory(true);
-    }
-  }, []);
+    getSingleVideoHandler(videoID).then((videoResponse) => {
+      setVideo(videoResponse);
+      setIsLiked(isLiked(videoResponse, likesState.likes));
+      addToHistoryHandler(videoResponse, historyDispatch, authState.token);
+    });
+  }, [videoID]);
 
   return (
     <section className={styles.singleVideoPage}>
@@ -61,7 +44,7 @@ const SingleVideoPage = () => {
           <iframe
             width="100%"
             height="100%"
-            src={`https://www.youtube.com/embed/${youtubeID}`}
+            src={`https://www.youtube.com/embed/${videoID}`}
             title="YouTube video player"
             frameBorder="0"
             allowFullScreen="allowfullscreen"
@@ -69,12 +52,12 @@ const SingleVideoPage = () => {
         </div>
         <div className={styles.descriptionWrapper}>
           <div className={styles.description}>
-            <h4 className={`h-4 ${styles.title}`}>{title}</h4>
+            <h4 className={`h-4 ${styles.title}`}>{video.title}</h4>
             <div className={styles.videoInfoWrapper}>
               <div className={styles.videoInfo}>
-                <p>{views} Views</p>
+                <p>{video.views} Views</p>
                 <span className={styles.dot}></span>
-                <p>{likes} Likes</p>
+                <p>{video.likes} Likes</p>
               </div>
               <div className={styles.iconsWrapper}>
                 <button
@@ -85,15 +68,15 @@ const SingleVideoPage = () => {
                     likesHandler(
                       authState.token,
                       componentsDispatch,
-                      isVideoLiked,
                       likesDispatch,
-                      setIsVideoLiked,
+                      isVideoLiked,
+                      setIsLiked,
                       video
                     )
                   }
                 >
                   <Icon icon={isVideoLiked ? icons.liked : icons.like} />
-                  <p className={styles.value}>{likes}</p>
+                  <p className={styles.value}>{video.likes}</p>
                 </button>
                 <span
                   className={`${styles.valueWrapper} ${styles.bookmarkIcon}`}
@@ -103,14 +86,17 @@ const SingleVideoPage = () => {
                 </span>
                 <button
                   className={`${styles.valueWrapper} ${styles.playlistIcon}`}
-                  onClick={() => setIsOpen((prevState) => !prevState)}
+                  onClick={() =>
+                    setIsPlaylistMenuOpen((prevState) => !prevState)
+                  }
                 >
                   <Icon icon={icons.addToPlaylist} />
                   <p className={styles.value}>Save</p>
                 </button>
                 <div
+                  ref={ref}
                   className={`${styles.playlistMenu} ${
-                    isOpen ? styles.menuOpen : styles.menuClose
+                    isPlaylistMenuOpen ? styles.menuOpen : styles.menuClose
                   }`}
                 >
                   <PlaylistMenu video={video} />
@@ -122,13 +108,18 @@ const SingleVideoPage = () => {
               </div>
             </div>
             <div className={styles.channelWrapper}>
-              <img src={channelThumbnail} className={styles.channelThumbnail} />
+              <img
+                src={video.channelThumbnail}
+                className={styles.channelThumbnail}
+              />
               <div className={styles.channelDetails}>
-                <a className={styles.channelName} href={channelLink}>
-                  {channelName}
+                <a className={styles.channelName} href={video.channelLink}>
+                  {video.channelName}
                 </a>
-                <p className={styles.channelSubs}>{subscribers} Subscribers</p>
-                <p className={styles.descriptionText}>{description}</p>
+                <p className={styles.channelSubs}>
+                  {video.subscribers} Subscribers
+                </p>
+                <p className={styles.descriptionText}>{video.description}</p>
               </div>
             </div>
           </div>

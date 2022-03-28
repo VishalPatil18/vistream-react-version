@@ -34,6 +34,7 @@
   font-weight: var(--fw-3);
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 82%;
 }
 
 .channelName {
@@ -74,7 +75,7 @@
 }
 
 .menuWrapper {
-  display: none;
+  display: flex;
 }
 
 .card:hover > .menuWrapper {
@@ -84,7 +85,7 @@
 .menu {
   background-color: var(--secondary-theme-color);
   border-radius: var(--br-xs);
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: var(--space-xxxs);
   padding: var(--space-xxs);
@@ -92,10 +93,6 @@
   right: 10px;
   top: 48px;
   z-index: 2;
-}
-
-.menuWrapper:hover > .menu {
-  display: flex;
 }
 
 .menuActionBtn {
@@ -127,14 +124,15 @@
 }
 
 .playlistMenu {
-  background-color: var(--dark);
+  background-color: var(--secondary-theme-color);
   border-radius: var(--br-xs);
   flex-direction: column;
   font-size: var(--fs-xs-1);
+  height: fit-content;
   padding: var(--space-xs);
   position: absolute;
   right: 0px;
-  top: 90px;
+  top: 0px;
   z-index: 5;
 }
 
@@ -144,4 +142,17 @@
 
 .menuClose {
   display: none;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (min-width: 1024px) {
+  .menuWrapper {
+    display: none;
+  }
+
+  .title {
+    width: 100%;
+  }
 }

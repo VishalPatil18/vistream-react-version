@@ -1,8 +1,19 @@
-import { useAuth } from "../../context";
+import { Icon } from "@iconify/react";
+import { icons, clearHistoryHandler } from "../../utilities";
+import { useState } from "react";
+import useOnclickOutside from "react-cool-onclickoutside";
+import { useAuth, useComponents, useHistory } from "../../context";
 import styles from "./InfoSidebar.module.css";
 
 const InfoSidebar = ({ page, noOfVideos }) => {
   const { authState } = useAuth();
+  const { componentsDispatch } = useComponents();
+  const { historyState, historyDispatch } = useHistory();
+  const [isClearMenuOpen, setIsClearMenuOpen] = useState(false);
+
+  const ref = useOnclickOutside(() => {
+    setIsClearMenuOpen(false);
+  });
 
   return (
     <div className={styles.sidebar}>
@@ -12,12 +23,41 @@ const InfoSidebar = ({ page, noOfVideos }) => {
         alt="watchlater-thumbnail"
       />
       <div className={styles.sidebarHeaderWrapper}>
-        <p className={styles.sidebarTitle}>{page}</p>
-        <div className={styles.sidebarHeader}>
-          <p>{noOfVideos} videos</p>
-          <span className={styles.dot}></span>
-          <p>Updated 4 days ago</p>
+        <div>
+          <p className={styles.sidebarTitle}>{page}</p>
+          <div className={styles.sidebarHeader}>
+            <p>{noOfVideos} videos</p>
+            <span className={styles.dot}></span>
+            <p>Updated 4 days ago</p>
+          </div>
         </div>
+        <button
+          className={styles.menuBtn}
+          onClick={() => setIsClearMenuOpen((prevState) => !prevState)}
+        >
+          <Icon icon={icons.menu} />
+        </button>
+
+        {isClearMenuOpen ? (
+          <div className={styles.menu}>
+            <button
+              ref={ref}
+              className={`button btn-solid-danger ${styles.clearBtn} ${
+                historyState.history.length <= 0 ? styles.disabledBtn : null
+              }`}
+              onClick={() =>
+                clearHistoryHandler(
+                  historyDispatch,
+                  componentsDispatch,
+                  authState.token
+                )
+              }
+            >
+              <Icon icon={icons.delete} />
+              Clear {page}
+            </button>
+          </div>
+        ) : null}
       </div>
       <div className={styles.profileWrapper}>
         <img

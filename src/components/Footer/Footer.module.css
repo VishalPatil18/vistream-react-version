@@ -52,7 +52,7 @@
 .footerCenter > .footerLink:hover,
 .footerRight > .footerLink:hover {
   color: var(--primary);
-  transition: 0.2s ease-in;
+  transition: color 0.2s ease-in;
 }
 
 .footerCopyright {
@@ -85,13 +85,11 @@
 /*
 ***************** MEDIA QUERIES *****************
 */
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 768px) {
   .footer {
-    padding: var(--space-xl) var(--space-xl) var(--space-xs);
+    padding: var(--space-xl) var(--space-xl) var(--space-xxxl);
   }
-}
 
-@media screen and (max-width: 680px) {
   .footerContent {
     flex-wrap: wrap;
     text-align: center;

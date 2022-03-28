@@ -63,10 +63,7 @@ const signupHandler = async (
       payload: {
         active: true,
         child: (
-          <Alert
-            action="danger"
-            message="User already exists! Please try again with a different E-mail id"
-          />
+          <Alert action="danger" message={error.response.data.errors[0]} />
         ),
       },
     });

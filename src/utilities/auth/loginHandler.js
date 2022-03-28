@@ -82,21 +82,6 @@ const loginHandler = async (
           child: <Alert action="success" message="Login Successful" />,
         },
       });
-    } else if (response.status === 201) {
-      componentsDispatch({
-        type: "LOADER",
-        payload: {
-          active: false,
-          title: "",
-        },
-      });
-      componentsDispatch({
-        type: "ALERT",
-        payload: {
-          active: true,
-          child: <Alert action="danger" message={"Incorrect Password!"} />,
-        },
-      });
     }
   } catch (error) {
     componentsDispatch({
@@ -110,7 +95,9 @@ const loginHandler = async (
       type: "ALERT",
       payload: {
         active: true,
-        child: <Alert action="danger" message="User Email not found!" />,
+        child: (
+          <Alert action="danger" message={error.response.data.errors[0]} />
+        ),
       },
     });
   }

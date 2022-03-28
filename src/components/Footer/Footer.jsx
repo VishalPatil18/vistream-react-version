@@ -43,7 +43,7 @@ const Footer = () => {
           <Link to="/" className={styles.footerLink}>
             Home
           </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/explore" className={styles.footerLink}>
             Explore
           </Link>
           <Link to="/" className={styles.footerLink}>
@@ -52,24 +52,24 @@ const Footer = () => {
           <Link to="/" className={styles.footerLink}>
             Categories
           </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/playlist" className={styles.footerLink}>
             Create Playlist
           </Link>
         </article>
         <article className={styles.footerRight}>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/playlist" className={styles.footerLink}>
             Playlists
           </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/watchlater" className={styles.footerLink}>
             Watchlater
           </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/liked" className={styles.footerLink}>
             Liked
           </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/history" className={styles.footerLink}>
             History
           </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/settings" className={styles.footerLink}>
             Settings
           </Link>
         </article>

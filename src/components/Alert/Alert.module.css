@@ -48,3 +48,14 @@
   background-color: var(--warning);
   color: var(--dark);
 }
+
+@media screen and (max-width: 480px) {
+  .alert {
+    left: var(--space-xs);
+    margin: auto;
+    padding: var(--space-sm);
+    right: var(--space-xs);
+    top: var(--space-xxs);
+    width: 95%;
+  }
+}

@@ -1,18 +1,22 @@
+import { Alert } from "../../components";
 import { removeFromLikesService } from "../../services";
 
 const removeFromLikesHandler = async (
   videoId,
   likesDispatch,
   componentsDispatch,
-  token
+  token,
+  page=""
 ) => {
-  componentsDispatch({
-    type: "LOADER",
-    payload: {
-      active: true,
-      title: "Removing from Liked",
-    },
-  });
+  if(page === "liked") {
+    componentsDispatch({
+      type: "LOADER",
+      payload: {
+        active: true,
+        title: "Removing from Liked",
+      },
+    });
+  }
   try {
     const response = await removeFromLikesService(videoId, token);
     if (response.status === 200) {
@@ -29,8 +33,6 @@ const removeFromLikesHandler = async (
           title: "",
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later");
     }
   } catch (error) {
     componentsDispatch({
@@ -40,7 +42,15 @@ const removeFromLikesHandler = async (
         title: "",
       },
     });
-    alert(error);
+    componentsDispatch({
+      type: "ALERT",
+      payload: {
+        active: true,
+        child: (
+          <Alert action="danger" message={error.response.data.errors[0]} />
+        ),
+      },
+    });
   }
 };
 

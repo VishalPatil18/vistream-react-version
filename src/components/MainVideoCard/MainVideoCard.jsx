@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import useOnclickOutside from "react-cool-onclickoutside";
 import { useAuth, useLikes, useComponents } from "../../context";
 import { icons, isLiked, likesHandler } from "../../utilities";
 import { PlaylistMenu, LoginModal } from "../../components";
@@ -10,8 +11,12 @@ const MainVideoCard = ({ video }) => {
   const { authState } = useAuth();
   const { likesState, likesDispatch } = useLikes();
   const { componentsDispatch } = useComponents();
-  const [liked, setLiked] = useState(isLiked(video, likesState.likes));
   const [isOpen, setIsOpen] = useState(false);
+  const [isVideoLiked, setIsLiked] = useState(isLiked(video, likesState.likes));
+
+  const ref = useOnclickOutside(() => {
+    setIsOpen(false);
+  });
 
   return (
     <article className={styles.card}>
@@ -23,19 +28,21 @@ const MainVideoCard = ({ video }) => {
           <small className={styles.videoLength}>{video.videoLength}</small>
           <div className={styles.btnWrapper}>
             <button
-              className={`${styles.button} ${liked ? styles.liked : null}`}
+              className={`${styles.button} ${
+                isVideoLiked ? styles.liked : null
+              }`}
               onClick={() =>
                 likesHandler(
                   authState.token,
                   componentsDispatch,
-                  liked,
                   likesDispatch,
-                  setLiked,
+                  isVideoLiked,
+                  setIsLiked,
                   video
                 )
               }
             >
-              <Icon icon={liked ? icons.liked : icons.like} />
+              <Icon icon={isVideoLiked ? icons.liked : icons.like} />
             </button>
             <button className={styles.button}>
               <Icon icon={icons.bookmark} />
@@ -58,6 +65,7 @@ const MainVideoCard = ({ video }) => {
               <Icon icon={icons.addToPlaylist} />
             </button>
             <div
+              ref={ref}
               className={`${styles.playlistMenu} ${
                 isOpen ? styles.menuOpen : styles.menuClose
               }`}

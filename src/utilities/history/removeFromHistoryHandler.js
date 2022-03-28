@@ -29,8 +29,6 @@ const removeFromHistoryHandler = async (
           title: "",
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later");
     }
   } catch (error) {
     componentsDispatch({
@@ -40,7 +38,15 @@ const removeFromHistoryHandler = async (
         title: "",
       },
     });
-    alert(error);
+    componentsDispatch({
+      type: "ALERT",
+      payload: {
+        active: true,
+        child: (
+          <Alert action="danger" message={error.response.data.errors[0]} />
+        ),
+      },
+    });
   }
 };
 

@@ -14,6 +14,7 @@
   -ms-overflow-style: none;
   display: flex;
   gap: var(--space-md);
+  height: 9rem;
   margin-bottom: var(--space-md);
   overflow-x: scroll;
   padding: var(--space-xs) var(--space-md);
