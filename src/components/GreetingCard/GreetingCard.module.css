@@ -2,7 +2,7 @@
   -webkit-backdrop-filter: blur(0px);
   align-items: center;
   backdrop-filter: blur(0px);
-  background-color: #EB1462;
+  background-color: #eb1463;
   border-radius: var(--br-sm);
   box-shadow: 0 2px 20px 0 rgba(255, 5, 47, 0.8);
   color: white;
@@ -13,10 +13,11 @@
   padding: var(--space-xs) var(--space-md);
 }
 
-.profileBadge {
-  background-color: white;
-  box-shadow: var(--bs-sm);
-  color: var(--secondary-theme-color);
-  display: flex;
-  gap: var(--space-xxs);
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 0 var(--space-xs) var(--space-xxs);
+  }
 }

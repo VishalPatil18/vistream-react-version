@@ -49,8 +49,6 @@ const addToPlaylistsHandler = async (
           ),
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later!");
     }
   } catch (error) {
     componentsDispatch({
@@ -64,7 +62,9 @@ const addToPlaylistsHandler = async (
       type: "ALERT",
       payload: {
         active: true,
-        child: <Alert action="danger" message={error} />,
+        child: (
+          <Alert action="danger" message={error.response.data.errors[0]} />
+        ),
       },
     });
   }

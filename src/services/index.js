@@ -13,7 +13,7 @@ export {
   removeFromLikesService,
 } from "./likes";
 
-export { getVideosService } from "./misc";
+export { getSingleVideoService, getVideosService } from "./videos";
 
 export {
   addToPlaylistsService,

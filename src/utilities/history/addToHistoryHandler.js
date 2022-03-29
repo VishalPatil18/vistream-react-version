@@ -10,11 +10,9 @@ const addToHistoryHandler = async (video, historyDispatch, token) => {
           history: response.data.history.reverse(),
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later!");
     }
   } catch (error) {
-    console.log("Error in add history handler", error);
+    console.log(error.response);
   }
 };
 

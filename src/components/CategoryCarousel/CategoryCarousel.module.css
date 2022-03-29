@@ -26,6 +26,10 @@
   display: none;
 }
 
+.seeAllBtn {
+  flex-shrink: 0;
+}
+
 .seeAllBtn:hover {
   background-color: initial;
 }

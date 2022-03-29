@@ -125,3 +125,19 @@
 .menuClose {
   display: none;
 }
+
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 768px) {
+  .thumbnail {
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .thumbnail {
+    height: 160px;
+  }  
+}

@@ -6,9 +6,6 @@ const Watchlater = () => {
   const videoList = videos.slice(1, 4);
   return (
     <section className={styles.body}>
-      <div className={styles.headingWrapper}>
-        <h2 className={styles.heading}>Your Watchlater</h2>
-      </div>
       <div className={styles.watchlaterWrapper}>
         <InfoSidebar page="Watch Later" noOfVideos={videoList.length} />
         <HorizontalCardWrapper videoList={videoList} page="watchlater" />

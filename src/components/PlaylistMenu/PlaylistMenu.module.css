@@ -1,4 +1,6 @@
 .buttonsWrapper {
+  background-color: var(--secondary-theme-color);
+  border-radius: var(--br-xxs);
   display: flex;
   flex-direction: column;
   gap: var(--space-xxxs);
@@ -16,5 +18,5 @@
 }
 
 .playlistBtns:hover {
-  background-color: var(--dark);
+  background-color: var(--secondary);
 }

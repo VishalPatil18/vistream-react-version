@@ -10,6 +10,10 @@
   padding: 0 var(--space-md);
 }
 
+.headingWrapper > a {
+  flex-shrink: 0;
+}
+
 .seeAllBtn:hover {
   background-color: initial;
 }

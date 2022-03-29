@@ -4,22 +4,24 @@ import { LoginModal } from "../../components";
 const likesHandler = (
   token,
   componentsDispatch,
-  liked,
   likesDispatch,
-  setLiked,
-  video
+  isVideoLiked,
+  setIsLiked,
+  video,
+  page
 ) => {
   if (token) {
-    if (liked) {
-      setLiked(false);
+    if (isVideoLiked) {
+      setIsLiked(false);
       return removeFromLikesHandler(
         video._id,
         likesDispatch,
         componentsDispatch,
-        token
+        token,
+        page
       );
     } else {
-      setLiked(true);
+      setIsLiked(true);
       return addToLikesHandler(video, likesDispatch, token);
     }
   }

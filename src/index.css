@@ -1,4 +1,4 @@
-@import url("https://vispaui-postdev-deploy.netlify.app/css/main.css");
+@import url("https://vispa-ui.vercel.app/css/main.css");
 
 /*
 ***************** GLOBAL STYLING *****************
@@ -7,6 +7,7 @@
   --dark: #131d28;
   --primary-theme-color: white;
   --secondary-theme-color: #001219;
+  font-size: 74%;
 }
 
 html {
@@ -36,4 +37,43 @@ body {
 
 .button {
   align-items: center;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 1536px) {
+  :root {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  :root {
+    font-size: 66%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 58%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    font-size: 54%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 50%;
+  }
 }
