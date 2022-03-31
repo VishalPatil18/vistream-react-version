@@ -9,13 +9,16 @@ import {
   useComponents,
   useHistory,
   usePlaylists,
+  useWatchlater,
 } from "../../context";
 import {
   icons,
   isLiked,
+  isInWatchlater,
   likesHandler,
   removeFromHistoryHandler,
   removeVideoFromPlaylistsHandler,
+  watchlaterHandler,
 } from "../../utilities";
 import styles from "./SmallVideoCard.module.css";
 
@@ -25,9 +28,13 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
   const { historyDispatch } = useHistory();
   const { componentsDispatch } = useComponents();
   const { playlistsDispatch } = usePlaylists();
+  const { watchlaterState, watchlaterDispatch } = useWatchlater();
   const [isPlaylistMenuOpen, setIsPlaylistMenuOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVideoLiked, setIsLiked] = useState(isLiked(video, likesState.likes));
+  const [inWatchlater, setInWatchlater] = useState(
+    isInWatchlater(video, watchlaterState.watchlater)
+  );
 
   const ref = useOnclickOutside(() => {
     setIsPlaylistMenuOpen(false);
@@ -77,12 +84,26 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
                       componentsDispatch,
                       authState.token
                     );
+                  case "watchlater":
+                    return watchlaterHandler(
+                      authState.token,
+                      componentsDispatch,
+                      watchlaterDispatch,
+                      inWatchlater,
+                      setInWatchlater,
+                      video,
+                      page
+                    );
                 }
               }}
             >
               <Icon
                 icon={(() => {
-                  if (page === "liked" && isVideoLiked) return icons.delete;
+                  if (
+                    (page === "liked" && isVideoLiked) ||
+                    (page === "watchlater" && inWatchlater)
+                  )
+                    return icons.delete;
                   else {
                     switch (page) {
                       case "liked":
@@ -98,7 +119,9 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
                 })()}
                 className={styles.menuActionBtnIcon}
               />
-              {(page === "liked" && isVideoLiked) || true
+              {(page === "liked" && isVideoLiked) ||
+              (page === "watchlater" && inWatchlater) ||
+              true
                 ? `Remove from ${page}`
                 : `Add to ${page}`}
             </button>

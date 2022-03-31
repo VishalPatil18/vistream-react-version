@@ -5,6 +5,7 @@ import {
   useHistory,
   useLikes,
   usePlaylists,
+  useWatchlater,
 } from "../../context";
 import { guestUser, inputHandler, loginHandler } from "../../utilities";
 import { SignupModal } from "../../components";
@@ -21,6 +22,7 @@ const LoginModal = () => {
   const { historyDispatch } = useHistory();
   const { likesDispatch } = useLikes();
   const { playlistsDispatch } = usePlaylists();
+  const { watchlaterDispatch } = useWatchlater();
 
   return (
     <form
@@ -32,6 +34,7 @@ const LoginModal = () => {
           historyDispatch,
           likesDispatch,
           playlistsDispatch,
+          watchlaterDispatch,
           event
         )
       }

@@ -45,22 +45,17 @@
 
 .profileBadge {
   align-items: center;
-  background-color: #eb1463;
-  box-shadow: 0 2px 20px 0 rgba(235, 20, 99, 0.8);
   display: flex;
   font-size: var(--fs-md-2);
-  gap: var(--space-xs);
-  margin-top: auto;
-  padding: var(--space-xxs);
-}
-
-.profileBadge:hover {
-  box-shadow: 0 5px 30px 0 rgba(235, 20, 99, 0.95);
+  gap: var(--space-xxs);
+  margin: auto auto 0;
+  padding: var(--space-xxxs) var(--space-md) var(--space-xxxs) var(--space-xxxs);
+  width: fit-content;
 }
 
 .profileBadge > a {
   align-items: center;
-  color: white;
+  color: var(--dark);
   display: flex;
   gap: var(--space-xs);
 }
@@ -73,19 +68,6 @@
   height: var(--space-xl);
   padding: var(--space-xxxs);
   width: var(--space-xl);
-}
-
-.loginBtn {
-  align-items: center;
-  display: flex;
-  font-size: var(--fs-md-2);
-  gap: var(--space-xxxs);
-  justify-content: center;
-  margin-top: auto;
-}
-
-.loginBtn > svg {
-  font-size: var(--fs-lg-2);
 }
 
 .mobileDrawer {

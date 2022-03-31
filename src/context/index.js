@@ -4,3 +4,4 @@ export { DataProvider, useData } from "./dataContext";
 export { HistoryProvider, useHistory } from "./historyContext";
 export { LikesProvider, useLikes } from "./likesContext";
 export { PlaylistsProvider, usePlaylists } from "./playlistContext";
+export { WatchlaterProvider, useWatchlater } from "./watchlaterContext";

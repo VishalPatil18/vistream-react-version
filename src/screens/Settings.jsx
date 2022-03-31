@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import {
@@ -6,8 +7,9 @@ import {
   useHistory,
   useLikes,
   usePlaylists,
+  useWatchlater,
 } from "../context";
-import { icons, logoutHandler } from "../utilities";
+import { icons, logoutHandler, scrollToTop } from "../utilities";
 import styles from "./Settings.module.css";
 import { Icon } from "@iconify/react";
 
@@ -17,7 +19,10 @@ const Settings = () => {
   const { historyDispatch } = useHistory();
   const { playlistsDispatch } = usePlaylists();
   const { componentsDispatch } = useComponents();
+  const { watchlaterDispatch } = useWatchlater();
   const navigate = useNavigate();
+
+  useEffect(scrollToTop, []);
 
   return (
     <section className={styles.settings}>
@@ -34,6 +39,7 @@ const Settings = () => {
                   historyDispatch,
                   playlistsDispatch,
                   componentsDispatch,
+                  watchlaterDispatch,
                   navigate
                 )
               }

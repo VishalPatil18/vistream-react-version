@@ -3,6 +3,7 @@ import {
   getHistoryService,
   getLikesService,
   getPlaylistsService,
+  getWatchlaterService,
 } from "../../services";
 import { Alert } from "../../components";
 
@@ -13,6 +14,7 @@ const loginHandler = async (
   historyDispatch,
   likesDispatch,
   playlistsDispatch,
+  watchlaterDispatch,
   event
 ) => {
   event.preventDefault();
@@ -66,6 +68,15 @@ const loginHandler = async (
         type: "INITIAL_PLAYLISTS",
         payload: {
           playlists: responsePlaylists.data.playlists,
+        },
+      });
+      const responseWatchlater = await getWatchlaterService(
+        response.data.encodedToken
+      );
+      watchlaterDispatch({
+        type: "INITIAL_WATCHLATER",
+        payload: {
+          watchlater: responseWatchlater.data.watchlater,
         },
       });
       componentsDispatch({

@@ -9,13 +9,9 @@ const filters = [
 ];
 import styles from "./FilterTags.module.css";
 
-const FilterTags = ({ page }) => {
+const FilterTags = () => {
   return (
-    <div
-      className={`${styles.filtersWrapper}  ${
-        page === "homePage" ? styles.homePage : null
-      }`}
-    >
+    <div className={styles.filtersWrapper}>
       {filters.map((item, i) => (
         <span key={i} className={`chip ch--primary ${styles.chip}`}>
           {item}

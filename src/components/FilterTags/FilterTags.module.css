@@ -7,10 +7,6 @@
   scrollbar-width: none;
 }
 
-.homePage {
-  padding: 0 var(--space-md) 0;
-}
-
 .filtersWrapper::-webkit-scrollbar {
   display: none;
 }

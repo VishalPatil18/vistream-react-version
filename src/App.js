@@ -30,7 +30,7 @@ function App() {
       {componentsState.alert.active ? <>{componentsState.alert.child}</> : null}
 
       <Drawer />
-      <section className={styles.mainBody}>
+      <section className={styles.mainBody} id="mainBody">
         <GreetingCard />
         <Routes>
           <Route path="/" element={<Home cname={styles.mainContent} />} />

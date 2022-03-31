@@ -45,7 +45,7 @@ const Drawer = () => {
           </button>
         ) : (
           <button
-            className={`button btn-round ${styles.loginBtn}`}
+            className={`button btn-round ${styles.profileBadge}`}
             onClick={() =>
               componentsDispatch({
                 type: "MODAL",
@@ -63,14 +63,14 @@ const Drawer = () => {
         )}
       </div>
       <div className={styles.mobileDrawer}>
-        <button className={currPage === "/" && styles.active}>
+        <button className={currPage === "/" ? styles.active : null}>
           <Link to="/">
             <Icon icon={icons.home} />
           </Link>
         </button>
         <button
           className={`${styles.largeBtn} ${
-            currPage === "/explore" && styles.active
+            currPage === "/explore" ? styles.active : null
           }`}
         >
           <Link to="/explore">
@@ -78,14 +78,14 @@ const Drawer = () => {
           </Link>
         </button>
         {authState.token ? (
-          <button className={currPage === "/watchlater" && styles.active}>
+          <button className={currPage === "/watchlater" ? styles.active : null}>
             <Link to="/watchlater">
               <Icon icon={icons.bookmarked} />
             </Link>
           </button>
         ) : (
           <button
-            className={currPage === "/watchlater" && styles.active}
+            className={currPage === "/watchlater" ? styles.active : null}
             onClick={() =>
               componentsDispatch({
                 type: "MODAL",
@@ -101,7 +101,7 @@ const Drawer = () => {
           </button>
         )}
         {authState.user ? (
-          <button className={currPage === "/settings" && styles.active}>
+          <button className={currPage === "/settings" ? styles.active : null}>
             <Link to="/settings">
               <Icon icon={icons.settings} />
             </Link>

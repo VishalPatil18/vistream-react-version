@@ -1,18 +1,28 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { useAuth, useLikes, useComponents } from "../../context";
-import { icons, isLiked, likesHandler } from "../../utilities";
+import { useAuth, useLikes, useComponents, useWatchlater } from "../../context";
+import {
+  icons,
+  isLiked,
+  likesHandler,
+  isInWatchlater,
+  watchlaterHandler,
+} from "../../utilities";
 import { PlaylistMenu, LoginModal } from "../../components";
-import { Link } from "react-router-dom";
 import styles from "./MainVideoCard.module.css";
 
 const MainVideoCard = ({ video }) => {
   const { authState } = useAuth();
   const { likesState, likesDispatch } = useLikes();
+  const { watchlaterState, watchlaterDispatch } = useWatchlater();
   const { componentsDispatch } = useComponents();
   const [isOpen, setIsOpen] = useState(false);
   const [isVideoLiked, setIsLiked] = useState(isLiked(video, likesState.likes));
+  const [inWatchlater, setInWatchlater] = useState(
+    isInWatchlater(video, watchlaterState.watchlater)
+  );
 
   const ref = useOnclickOutside(() => {
     setIsOpen(false);
@@ -44,8 +54,23 @@ const MainVideoCard = ({ video }) => {
             >
               <Icon icon={isVideoLiked ? icons.liked : icons.like} />
             </button>
-            <button className={styles.button}>
-              <Icon icon={icons.bookmark} />
+            <button
+              className={`${styles.button} ${
+                inWatchlater ? styles.liked : null
+              }`}
+              onClick={() =>
+                watchlaterHandler(
+                  authState.token,
+                  componentsDispatch,
+                  watchlaterDispatch,
+                  inWatchlater,
+                  setInWatchlater,
+                  video,
+                  ""
+                )
+              }
+            >
+              <Icon icon={inWatchlater ? icons.bookmarked : icons.bookmark} />
             </button>
             <button
               className={styles.button}

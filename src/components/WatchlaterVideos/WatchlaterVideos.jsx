@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { SmallVideoCard } from "../../components";
-import { videos } from "../../backend/db/videos";
+import { useWatchlater } from "../../context";
 import styles from "./WatchlaterVideos.module.css";
 
 const WatchlaterVideos = () => {
-  const videoList = videos.slice(0, 4);
+  const { watchlaterState } = useWatchlater();
 
   return (
     <section>
@@ -19,13 +19,15 @@ const WatchlaterVideos = () => {
         </Link>
       </div>
       <div className={styles.table}>
-        {videoList.map((video) => (
-          <SmallVideoCard
-            key={`watchLaterVideo-${video._id}`}
-            video={video}
-            page="watchlater"
-          />
-        ))}
+        {watchlaterState.watchlater.length > 0
+          ? watchlaterState.watchlater.map((video) => (
+              <SmallVideoCard
+                key={`watchLaterVideo-${video._id}`}
+                video={video}
+                page="watchlater"
+              />
+            ))
+          : null}
       </div>
     </section>
   );

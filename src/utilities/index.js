@@ -1,8 +1,8 @@
 export { loginHandler, logoutHandler, guestUser, signupHandler } from "./auth";
 
 export {
-  clearHistoryHandler,
   addToHistoryHandler,
+  clearHistoryHandler,
   removeFromHistoryHandler,
 } from "./history";
 
@@ -13,7 +13,7 @@ export {
   removeFromLikesHandler,
 } from "./likes";
 
-export { icons, inputHandler, tabsList } from "./misc";
+export { icons, inputHandler, tabsList, scrollToTop } from "./misc";
 
 export {
   addToPlaylistsHandler,
@@ -23,3 +23,10 @@ export {
 } from "./playlists";
 
 export { getSingleVideoHandler } from "./videos";
+
+export {
+  addToWatchlaterHandler,
+  isInWatchlater,
+  removeFromWatchlaterHandler,
+  watchlaterHandler,
+} from "./watchlater";

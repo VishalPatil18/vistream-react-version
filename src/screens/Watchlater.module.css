@@ -11,6 +11,24 @@
   padding: var(--space-md);
 }
 
+.emptyWatchlaterMsg {
+  align-items: center;
+  display: flex;
+  font-size: var(--fs-lg-1);
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.emptyWatchlaterMsgWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyWatchlaterMsgWrapper > a {
+  margin: auto;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */

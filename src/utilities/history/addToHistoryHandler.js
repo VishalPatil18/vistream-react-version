@@ -12,7 +12,7 @@ const addToHistoryHandler = async (video, historyDispatch, token) => {
       });
     }
   } catch (error) {
-    console.log(error.response);
+    console.log(error);
   }
 };
 

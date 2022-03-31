@@ -10,3 +10,41 @@
   height: calc(100vh - 160px);
   padding: var(--space-md);
 }
+
+.emptyPlaylistMsg {
+  align-items: center;
+  display: flex;
+  font-size: var(--fs-lg-1);
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.emptyPlaylistMsgWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyPlaylistMsgWrapper > a {
+  margin: auto;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 1024px) {
+  .playlistWrapper {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .body {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .playlistWrapper {
+    padding: var(--space-xs);
+  }
+}

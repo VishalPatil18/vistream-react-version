@@ -6,6 +6,7 @@ const logoutHandler = (
   historyDispatch,
   playlistDispatch,
   componentsDispatch,
+  watchlaterDispatch,
   navigate
 ) => {
   componentsDispatch({
@@ -28,6 +29,9 @@ const logoutHandler = (
   });
   playlistDispatch({
     type: "CLEAR_PLAYLIST",
+  });
+  watchlaterDispatch({
+    type: "RESET_WATCHLATER",
   });
   componentsDispatch({
     type: "LOADER",

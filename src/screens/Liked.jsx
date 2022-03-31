@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { InfoSidebar, HorizontalCardWrapper } from "../components";
 import { useLikes } from "../context";
+import { scrollToTop } from "../utilities";
 import styles from "./Liked.module.css";
 
 const Liked = () => {
   const { likesState } = useLikes();
+
+  useEffect(scrollToTop, []);
 
   return (
     <section className={styles.body}>

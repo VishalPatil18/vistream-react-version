@@ -1,28 +1,30 @@
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import {
   CategoryCarousel,
   PlaylistCarousel,
-  FilterTags,
   TrendingVideoTable,
   WatchlaterVideos,
   FeaturedVideos,
-  Alert,
 } from "../components";
-import { Link } from "react-router-dom";
-import { usePlaylists } from "../context";
+import { scrollToTop } from "../utilities";
+import { usePlaylists, useWatchlater } from "../context";
 import styles from "./Home.module.css";
 
 const Home = ({ cname }) => {
   const { playlistsState } = usePlaylists();
+  const { watchlaterState } = useWatchlater();
+
+  useEffect(scrollToTop, []);
 
   return (
     <main className={cname}>
-      <FilterTags page={"homePage"} />
       <CategoryCarousel />
       {playlistsState.playlists.length > 0 ? (
         <PlaylistCarousel playlists={playlistsState.playlists} />
       ) : null}
       <TrendingVideoTable />
-      <WatchlaterVideos />
+      {watchlaterState.watchlater.length > 0 ? <WatchlaterVideos /> : null}
       <FeaturedVideos page="homePage" />
       <footer className={styles.footer}>
         <Link
