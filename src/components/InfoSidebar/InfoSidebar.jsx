@@ -2,18 +2,40 @@ import { Icon } from "@iconify/react";
 import { icons, clearHistoryHandler } from "../../utilities";
 import { useState } from "react";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { useAuth, useComponents, useHistory } from "../../context";
+import { Alert } from "../../components";
+import {
+  useAuth,
+  useComponents,
+  useHistory,
+  useLikes,
+  useWatchlater,
+} from "../../context";
 import styles from "./InfoSidebar.module.css";
 
 const InfoSidebar = ({ page, noOfVideos }) => {
   const { authState } = useAuth();
   const { componentsDispatch } = useComponents();
   const { historyState, historyDispatch } = useHistory();
+  const { watchlaterState, watchlaterDispatch } = useWatchlater();
+  const { likesState, likesDispatch } = useLikes();
   const [isClearMenuOpen, setIsClearMenuOpen] = useState(false);
 
   const ref = useOnclickOutside(() => {
     setIsClearMenuOpen(false);
   });
+
+  const actionState = (() => {
+    switch (page) {
+      case "Watch Later":
+        return watchlaterState.watchlater;
+      case "Liked Videos":
+        return likesState.likes;
+      case "Watch History":
+        return historyState.history;
+      default:
+        return null;
+    }
+  })();
 
   return (
     <div className={styles.sidebar}>
@@ -31,27 +53,68 @@ const InfoSidebar = ({ page, noOfVideos }) => {
             <p>Updated 4 days ago</p>
           </div>
         </div>
-        <button
-          className={styles.menuBtn}
-          onClick={() => setIsClearMenuOpen((prevState) => !prevState)}
-        >
-          <Icon icon={icons.menu} />
-        </button>
+        {page === "Watch Later" ||
+        page === "Liked Videos" ||
+        page === "Watch History" ? (
+          <button
+            className={styles.menuBtn}
+            onClick={() => setIsClearMenuOpen((prevState) => !prevState)}
+          >
+            <Icon icon={icons.menu} />
+          </button>
+        ) : null}
 
         {isClearMenuOpen ? (
           <div className={styles.menu}>
             <button
               ref={ref}
               className={`button btn-solid-danger ${styles.clearBtn} ${
-                historyState.history.length <= 0 ? styles.disabledBtn : null
+                actionState.length <= 0 ? styles.disabledBtn : null
               }`}
-              onClick={() =>
-                clearHistoryHandler(
-                  historyDispatch,
-                  componentsDispatch,
-                  authState.token
-                )
-              }
+              onClick={() => {
+                switch (page) {
+                  case "Watch Later":
+                    componentsDispatch({
+                      type: "ALERT",
+                      payload: {
+                        active: true,
+                        child: (
+                          <Alert
+                            action="success"
+                            message="Watchlater Cleared!"
+                          />
+                        ),
+                      },
+                    });
+                    return watchlaterDispatch({
+                      type: "RESET_WATCHLATER",
+                    });
+                  case "Liked Videos":
+                    componentsDispatch({
+                      type: "ALERT",
+                      payload: {
+                        active: true,
+                        child: (
+                          <Alert
+                            action="success"
+                            message="Liked Videos Cleared!"
+                          />
+                        ),
+                      },
+                    });
+                    return likesDispatch({
+                      type: "RESET_LIKES",
+                    });
+                  case "Watch History":
+                    return clearHistoryHandler(
+                      historyDispatch,
+                      componentsDispatch,
+                      authState.token
+                    );
+                  default:
+                    return null;
+                }
+              }}
             >
               <Icon icon={icons.delete} />
               Clear {page}

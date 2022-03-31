@@ -1,10 +1,14 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { InfoSidebar, HorizontalCardWrapper } from "../components";
 import { useHistory } from "../context";
-import { Link } from "react-router-dom";
+import { scrollToTop } from "../utilities";
 import styles from "./History.module.css";
 
 const History = () => {
   const { historyState } = useHistory();
+
+  useEffect(scrollToTop, []);
 
   return (
     <section className={styles.body}>

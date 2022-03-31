@@ -23,3 +23,9 @@ export {
   removeFromPlaylistsService,
   removeVideoFromPlaylistsService,
 } from "./playlists";
+
+export {
+  addToWatchlaterService,
+  getWatchlaterService,
+  removeFromWatchlaterService,
+} from "./watchlater";

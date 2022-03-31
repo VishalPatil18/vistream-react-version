@@ -10,8 +10,17 @@ import {
   isLiked,
   likesHandler,
   getSingleVideoHandler,
+  isInWatchlater,
+  watchlaterHandler,
+  scrollToTop,
 } from "../utilities";
-import { useAuth, useComponents, useHistory, useLikes } from "../context";
+import {
+  useAuth,
+  useComponents,
+  useHistory,
+  useLikes,
+  useWatchlater,
+} from "../context";
 import styles from "./SingleVideoPage.module.css";
 
 const SingleVideoPage = () => {
@@ -20,20 +29,28 @@ const SingleVideoPage = () => {
   const { componentsDispatch } = useComponents();
   const { historyDispatch } = useHistory();
   const { likesState, likesDispatch } = useLikes();
+  const { watchlaterState, watchlaterDispatch } = useWatchlater();
   const [isPlaylistMenuOpen, setIsPlaylistMenuOpen] = useState(false);
   const [video, setVideo] = useState({});
   const videoList = videos.slice(8, 22);
   const [isVideoLiked, setIsLiked] = useState(false);
+  const [inWatchlater, setInWatchlater] = useState(false);
 
   const ref = useOnclickOutside(() => {
     setIsPlaylistMenuOpen(false);
   });
 
   useEffect(() => {
+    scrollToTop();
     getSingleVideoHandler(videoID).then((videoResponse) => {
       setVideo(videoResponse);
       setIsLiked(isLiked(videoResponse, likesState.likes));
-      addToHistoryHandler(videoResponse, historyDispatch, authState.token);
+      setInWatchlater(
+        isInWatchlater(videoResponse, watchlaterState.watchlater)
+      );
+      if (authState.token) {
+        addToHistoryHandler(videoResponse, historyDispatch, authState.token);
+      }
     });
   }, [videoID]);
 
@@ -78,12 +95,27 @@ const SingleVideoPage = () => {
                   <Icon icon={isVideoLiked ? icons.liked : icons.like} />
                   <p className={styles.value}>{video.likes}</p>
                 </button>
-                <span
-                  className={`${styles.valueWrapper} ${styles.bookmarkIcon}`}
+                <button
+                  className={`${styles.valueWrapper} ${styles.bookmarkIcon} ${
+                    inWatchlater ? styles.liked : null
+                  }`}
+                  onClick={() =>
+                    watchlaterHandler(
+                      authState.token,
+                      componentsDispatch,
+                      watchlaterDispatch,
+                      inWatchlater,
+                      setInWatchlater,
+                      video,
+                      ""
+                    )
+                  }
                 >
-                  <Icon icon={icons.bookmarked} />
+                  <Icon
+                    icon={inWatchlater ? icons.bookmarked : icons.bookmark}
+                  />
                   <p className={styles.value}>Watchlater</p>
-                </span>
+                </button>
                 <button
                   className={`${styles.valueWrapper} ${styles.playlistIcon}`}
                   onClick={() =>

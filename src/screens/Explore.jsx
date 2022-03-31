@@ -1,9 +1,12 @@
 import { Icon } from "@iconify/react";
+import { useEffect } from "react";
 import { FeaturedVideos, FilterTags } from "../components";
-import { icons } from "../utilities";
+import { icons, scrollToTop } from "../utilities";
 import styles from "./Explore.module.css";
 
 const Explore = () => {
+  useEffect(scrollToTop, []);
+
   return (
     <main>
       <div className={styles.header}>

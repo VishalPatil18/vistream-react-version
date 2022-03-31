@@ -1,14 +1,16 @@
+import { useEffect, useState } from "react";
 import { PlaylistCard, CreatePlaylistModal } from "../components";
 import { Icon } from "@iconify/react";
-import { icons } from "../utilities";
+import { icons, scrollToTop } from "../utilities";
 import { useComponents, usePlaylists } from "../context";
 import styles from "./Playlist.module.css";
-import { useEffect, useState } from "react";
 
 const Playlist = () => {
   const [playlists, setPlaylists] = useState([]);
   const { playlistsState } = usePlaylists();
   const { componentsDispatch } = useComponents();
+
+  useEffect(scrollToTop, []);
 
   useEffect(() => {
     setPlaylists(Object.values(playlistsState.playlists));
