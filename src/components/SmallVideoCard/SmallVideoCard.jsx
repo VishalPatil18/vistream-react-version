@@ -121,7 +121,7 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
               />
               {(page === "liked" && isVideoLiked) ||
               (page === "watchlater" && inWatchlater) ||
-              true
+              page === "history"
                 ? `Remove from ${page}`
                 : `Add to ${page}`}
             </button>

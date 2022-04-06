@@ -1,0 +1,88 @@
+.filterSubmenu {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: var(--br-md);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-3);
+  gap: var(--space-xs);
+  height: fit-content;
+  padding: var(--space-sm);
+  text-align: start;
+  width: 100%;
+}
+
+.filterHeading {
+  align-items: center;
+  display: flex;
+  gap: var(--space-xxs);
+  justify-content: space-between;
+}
+
+.filterHeadingText {
+  font-size: var(--fs-md-2);
+  font-weight: var(--fw-6);
+}
+
+.filterBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterTypeHeading {
+  border-bottom: 1.5px solid white;
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-4);
+  margin-bottom: var(--space-xxs);
+  padding-bottom: var(--space-xxs);
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterByBtn {
+  background-color: initial;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: var(--fs-xs-1);
+  text-align: start;
+  transition: color 0.2s ease-in;
+}
+
+.filterByBtn:hover {
+  color: var(--primary);
+}
+
+.inputWrapper {
+  align-items: center;
+  display: flex;
+  gap: var(--space-xxxs);
+  margin-bottom: var(--space-xxxs);
+}
+
+.clearBtn {
+  margin-left: auto;
+}
+
+.closeBtn {
+  align-items: center;
+  background-color: var(--danger);
+  border-radius: var(--br-full);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  width: 25px;
+}
+
+.closeBtn > svg {
+  height: 15px;
+  width: 15px;
+}

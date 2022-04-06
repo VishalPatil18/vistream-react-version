@@ -49,11 +49,8 @@ const Footer = () => {
           <Link to="/" className={styles.footerLink}>
             Trending
           </Link>
-          <Link to="/" className={styles.footerLink}>
-            Categories
-          </Link>
-          <Link to="/playlist" className={styles.footerLink}>
-            Create Playlist
+          <Link to="/settings" className={styles.footerLink}>
+            Settings
           </Link>
         </article>
         <article className={styles.footerRight}>
@@ -68,9 +65,6 @@ const Footer = () => {
           </Link>
           <Link to="/history" className={styles.footerLink}>
             History
-          </Link>
-          <Link to="/settings" className={styles.footerLink}>
-            Settings
           </Link>
         </article>
       </section>

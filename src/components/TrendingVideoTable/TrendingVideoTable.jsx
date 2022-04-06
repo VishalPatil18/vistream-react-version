@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 import { SmallVideoCard } from "../../components";
-import { videos } from "../../backend/db/videos";
+import { useData } from "../../context";
+import { useEffect, useState } from "react";
+import { findTrendingVideos } from "../../utilities";
 import styles from "./TrendingVideoTable.module.css";
 
 const TrendingVideoTable = () => {
-  const videoList = videos.slice(8, 12);
+  const { videosData } = useData();
+  const [videoList, setVideoList] = useState([]);
+
+  useEffect(() => {
+    setVideoList(
+      videosData.length > 0 ? findTrendingVideos(videosData).slice(0, 4) : []
+    );
+  }, [videosData]);
 
   return (
     <section>

@@ -1,20 +1,31 @@
-const filters = [
-  "All",
-  "New",
-  "Under 4 minutes",
-  "4-20 minutes",
-  "Over 20 minutes",
-  "Most Viewed First",
-  "Oldest First",
-];
+import { useState } from "react";
+import { FILTER_TAGS } from "../../constants";
+import { useFilter } from "../../context";
 import styles from "./FilterTags.module.css";
 
 const FilterTags = () => {
+  const { filterDispatch } = useFilter();
+  const [isActive, setIsActive] = useState("");
+
   return (
     <div className={styles.filtersWrapper}>
-      {filters.map((item, i) => (
-        <span key={i} className={`chip ch--primary ${styles.chip}`}>
-          {item}
+      {FILTER_TAGS.map((filter) => (
+        <span
+          key={filter.title}
+          className={`chip ${
+            isActive === filter.title ? styles.active : "ch--primary"
+          } ${styles.chip}`}
+          onClick={() => {
+            setIsActive(filter.title);
+            filterDispatch({
+              type: filter.type,
+              payload: {
+                [filter.payloadKey]: filter.payloadValue,
+              },
+            });
+          }}
+        >
+          {filter.title}
         </span>
       ))}
     </div>

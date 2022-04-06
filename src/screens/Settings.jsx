@@ -1,78 +1,48 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
-import {
-  useAuth,
-  useComponents,
-  useHistory,
-  useLikes,
-  usePlaylists,
-  useWatchlater,
-} from "../context";
-import { icons, logoutHandler, scrollToTop } from "../utilities";
+import { useEffect, useState } from "react";
+import { scrollToTop } from "../utilities";
+import { UserProfile, UserSettings } from "../components";
 import styles from "./Settings.module.css";
-import { Icon } from "@iconify/react";
 
 const Settings = () => {
-  const { authState, authDispatch } = useAuth();
-  const { likesDispatch } = useLikes();
-  const { historyDispatch } = useHistory();
-  const { playlistsDispatch } = usePlaylists();
-  const { componentsDispatch } = useComponents();
-  const { watchlaterDispatch } = useWatchlater();
-  const navigate = useNavigate();
+  const [tab, setTab] = useState("settings");
+
+  const tabHandler = (tabName) => {
+    setTab(tabName);
+  };
 
   useEffect(scrollToTop, []);
 
   return (
     <section className={styles.settings}>
-      {authState.user && (
-        <>
-          <p className={styles.greet}>Hello, {authState.user.username}👋</p>
-          <div className={styles.btnsWrapper}>
-            <button
-              className="button btn-solid-primary"
-              onClick={() =>
-                logoutHandler(
-                  authDispatch,
-                  likesDispatch,
-                  historyDispatch,
-                  playlistsDispatch,
-                  componentsDispatch,
-                  watchlaterDispatch,
-                  navigate
-                )
-              }
-            >
-              Logout
-            </button>
-            <button className="button btn-solid-primary">
-              <Link to="/playlist" className={styles.btn}>
-                <Icon icon={icons.playlist} />
-                Playlists
-              </Link>
-            </button>
-            <button className="button btn-solid-primary">
-              <Link to="/liked" className={styles.btn}>
-                <Icon icon={icons.liked} />
-                Liked
-              </Link>
-            </button>
-            <button className="button btn-solid-primary">
-              <Link to="/watchlater" className={styles.btn}>
-                <Icon icon={icons.bookmarked} />
-                Watch Later
-              </Link>
-            </button>
-            <button className="button btn-solid-primary">
-              <Link to="/history" className={styles.btn}>
-                <Icon icon={icons.history} />
-                History
-              </Link>
-            </button>
-          </div>
-        </>
-      )}
+      <nav className={styles.nav}>
+        <button
+          className={`${styles.navBtn} ${
+            tab === "settings" ? styles.activeNavBtn : ""
+          }`}
+          onClick={() => tabHandler("settings")}
+        >
+          Settings
+        </button>
+        <button
+          className={`${styles.navBtn} ${
+            tab === "profile" ? styles.activeNavBtn : ""
+          }`}
+          onClick={() => tabHandler("profile")}
+        >
+          Profile
+        </button>
+      </nav>
+
+      {(() => {
+        switch (tab) {
+          case "profile":
+            return <UserProfile />;
+          case "settings":
+            return <UserSettings />;
+          default:
+            return <></>;
+        }
+      })()}
     </section>
   );
 };

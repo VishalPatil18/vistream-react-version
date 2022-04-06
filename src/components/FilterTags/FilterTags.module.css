@@ -19,3 +19,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.active {
+  background-color: var(--secondary);
+}
+
+.active:hover {
+  background-color: var(--blue-6);
+}

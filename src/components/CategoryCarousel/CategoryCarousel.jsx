@@ -1,8 +1,26 @@
-import styles from "./CategoryCarousel.module.css";
-import { categories } from "../../backend/db/categories";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { GamesCategoryCard } from "../../components";
+import styles from "./CategoryCarousel.module.css";
 
 const CategoryCarousel = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("/api/categories");
+        if (response.status === 200) {
+          setCategories(response.data.categories);
+        } else {
+          throw new Error("Something went wrong! Please try again later!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
   return (
     <section>
       <div className={styles.headingWrapper}>
@@ -12,14 +30,16 @@ const CategoryCarousel = () => {
         </button>
       </div>
       <div className={styles.carousel}>
-        {categories.map((item) => (
-          <GamesCategoryCard
-            key={item._id}
-            imageSrc={item.imageSrc}
-            title={item.categoryName}
-            likes={item.likes}
-          />
-        ))}
+        {categories.length > 0
+          ? categories.map((category) => (
+              <GamesCategoryCard
+                key={category._id}
+                imageSrc={category.imageSrc}
+                title={category.categoryName}
+                likes={category.likes}
+              />
+            ))
+          : null}
       </div>
     </section>
   );

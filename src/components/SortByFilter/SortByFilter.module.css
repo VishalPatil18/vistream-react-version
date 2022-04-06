@@ -1,0 +1,25 @@
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrapper {
+  align-items: center;
+  display: flex;
+  gap: var(--space-xxxs);
+  margin-bottom: var(--space-xxxs);
+}
+
+.filterByBtn {
+  background-color: initial;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: var(--fs-xs-1);
+  text-align: start;
+  transition: color 0.2s ease-in;
+}
+
+.filterByBtn:hover {
+  color: var(--primary);
+}

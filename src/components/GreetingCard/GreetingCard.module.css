@@ -13,11 +13,57 @@
   padding: var(--space-xs) var(--space-md);
 }
 
+.searchWrapper {
+  width: fit-content;
+}
+
+.searchInput {
+  background-color: white;
+  border-radius: var(--br-sm);
+  border: none;
+  max-width: 480px;
+}
+
+.searchInput:active {
+  outline: none;
+}
+
+.searchWrapper .searchInput:focus {
+  border: none;
+  outline: none;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */
 @media screen and (max-width: 768px) {
   .card {
     margin: 0 var(--space-xs) var(--space-xxs);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    margin: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .cardOnExplore {
+    margin: 0 0 var(--space-xxxs);
+    padding: 0;
+  }
+
+  .greetingText {
+    display: none;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+
+  .searchInput {
+    border-radius: 0;
+    margin: 0;
+    padding: var(--space-xs);
   }
 }

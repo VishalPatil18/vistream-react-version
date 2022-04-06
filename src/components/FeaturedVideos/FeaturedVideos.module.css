@@ -1,7 +1,6 @@
 .headingWrapper {
   align-items: center;
   display: flex;
-  justify-content: space-between;
 }
 
 .heading {
@@ -12,6 +11,11 @@
 
 .headingWrapper > a {
   flex-shrink: 0;
+}
+
+.showingProduct {
+  color: var(--grey-2);
+  font-size: var(--fs-xs-1);
 }
 
 .seeAllBtn:hover {
