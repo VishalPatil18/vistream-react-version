@@ -39,34 +39,32 @@ body {
   align-items: center;
 }
 
+iframe {
+  pointer-events: none;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */
 @media screen and (max-width: 1536px) {
   :root {
-    font-size: 70%;
+    font-size: 66%;
   }
 }
 
 @media screen and (max-width: 1280px) {
   :root {
-    font-size: 66%;
+    font-size: 62.5%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   :root {
-    font-size: 62.5%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :root {
     font-size: 58%;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   :root {
     font-size: 54%;
   }

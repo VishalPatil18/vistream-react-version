@@ -10,6 +10,7 @@ import {
   HistoryProvider,
   PlaylistsProvider,
   WatchlaterProvider,
+  FilterProvider,
 } from "./context";
 import "./index.css";
 import App from "./App";
@@ -21,19 +22,21 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <DataProvider>
-        <LikesProvider>
-          <HistoryProvider>
-            <PlaylistsProvider>
-              <WatchlaterProvider>
-                <ComponentsProvider>
-                  <BrowserRouter>
-                    <App />
-                  </BrowserRouter>
-                </ComponentsProvider>
-              </WatchlaterProvider>
-            </PlaylistsProvider>
-          </HistoryProvider>
-        </LikesProvider>
+        <FilterProvider>
+          <LikesProvider>
+            <HistoryProvider>
+              <PlaylistsProvider>
+                <WatchlaterProvider>
+                  <ComponentsProvider>
+                    <BrowserRouter>
+                      <App />
+                    </BrowserRouter>
+                  </ComponentsProvider>
+                </WatchlaterProvider>
+              </PlaylistsProvider>
+            </HistoryProvider>
+          </LikesProvider>
+        </FilterProvider>
       </DataProvider>
     </AuthProvider>
   </React.StrictMode>,

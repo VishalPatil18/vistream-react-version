@@ -13,6 +13,7 @@ import {
   isInWatchlater,
   watchlaterHandler,
   scrollToTop,
+  changeToAlphabet,
 } from "../utilities";
 import {
   useAuth,
@@ -72,9 +73,9 @@ const SingleVideoPage = () => {
             <h4 className={`h-4 ${styles.title}`}>{video.title}</h4>
             <div className={styles.videoInfoWrapper}>
               <div className={styles.videoInfo}>
-                <p>{video.views} Views</p>
+                <p>{(() => changeToAlphabet(video.views))()} Views</p>
                 <span className={styles.dot}></span>
-                <p>{video.likes} Likes</p>
+                <p>{(() => changeToAlphabet(video.likes))()} Likes</p>
               </div>
               <div className={styles.iconsWrapper}>
                 <button
@@ -93,7 +94,9 @@ const SingleVideoPage = () => {
                   }
                 >
                   <Icon icon={isVideoLiked ? icons.liked : icons.like} />
-                  <p className={styles.value}>{video.likes}</p>
+                  <p className={styles.value}>
+                    {(() => changeToAlphabet(video.likes))()}
+                  </p>
                 </button>
                 <button
                   className={`${styles.valueWrapper} ${styles.bookmarkIcon} ${

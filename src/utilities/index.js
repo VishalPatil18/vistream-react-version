@@ -1,6 +1,14 @@
 export { loginHandler, logoutHandler, guestUser, signupHandler } from "./auth";
 
 export {
+  categoryFilterHandler,
+  filterHandler,
+  durationFilterHandler,
+  searchHandler,
+  sortByFilterHandler,
+} from "./filters";
+
+export {
   addToHistoryHandler,
   clearHistoryHandler,
   removeFromHistoryHandler,
@@ -13,7 +21,14 @@ export {
   removeFromLikesHandler,
 } from "./likes";
 
-export { icons, inputHandler, tabsList, scrollToTop } from "./misc";
+export {
+  changeToAlphabet,
+  findTrendingVideos,
+  icons,
+  inputHandler,
+  scrollToTop,
+  tabsList,
+} from "./misc";
 
 export {
   addToPlaylistsHandler,

@@ -9,6 +9,7 @@ import {
   likesHandler,
   isInWatchlater,
   watchlaterHandler,
+  changeToAlphabet,
 } from "../../utilities";
 import { PlaylistMenu, LoginModal } from "../../components";
 import styles from "./MainVideoCard.module.css";
@@ -110,9 +111,9 @@ const MainVideoCard = ({ video }) => {
           </Link>
           <p className={styles.channelName}>{video.channelName}</p>
           <div className={styles.channelDetails}>
-            <p>{video.views} Views</p>
+            <p>{(() => changeToAlphabet(video.views))()} Views</p>
             <span className={styles.dot}></span>
-            <p>{video.likes} Likes</p>
+            <p>{(() => changeToAlphabet(video.likes))()} Likes</p>
           </div>
         </div>
       </div>

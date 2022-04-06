@@ -1,0 +1,19 @@
+.btnsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-md) auto;
+  width: 200px;
+}
+
+.btn {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.btn > svg {
+  font-size: var(--fs-md-1);
+  margin-right: var(--space-xxs);
+}
