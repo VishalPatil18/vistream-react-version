@@ -1,5 +1,6 @@
 .card {
   cursor: pointer;
+  max-width: 400px;
 }
 
 .thumbnailWrapper {
