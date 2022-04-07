@@ -37,6 +37,8 @@ export {
   removeVideoFromPlaylistsHandler,
 } from "./playlists";
 
+export { validateLoginUser, validateSignupUser } from "./validation";
+
 export { getSingleVideoHandler } from "./videos";
 
 export {

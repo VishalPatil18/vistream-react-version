@@ -39,10 +39,6 @@ body {
   align-items: center;
 }
 
-iframe {
-  pointer-events: none;
-}
-
 /*
 ***************** MEDIA QUERIES *****************
 */

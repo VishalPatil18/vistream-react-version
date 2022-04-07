@@ -1,7 +1,13 @@
 import { useState } from "react";
+import { Icon } from "@iconify/react";
 import { useComponents, useAuth } from "../../context";
-import { inputHandler, signupHandler } from "../../utilities";
-import { LoginModal } from "../../components";
+import {
+  inputHandler,
+  signupHandler,
+  validateSignupUser,
+  icons,
+} from "../../utilities";
+import { Alert, LoginModal } from "../../components";
 import styles from "./SignupModal.module.css";
 
 const SignupModal = () => {
@@ -9,16 +15,37 @@ const SignupModal = () => {
     email: "",
     password: "",
     username: "",
+    confirmPassword: "",
+    rememberMe: false,
   });
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { authDispatch } = useAuth();
   const { componentsDispatch } = useComponents();
 
   return (
     <form
-      onSubmit={(event) =>
-        signupHandler(signup, authDispatch, componentsDispatch, event)
-      }
+      onSubmit={(event) => {
+        event.preventDefault();
+        const validation = validateSignupUser(signup);
+        if (validation === true) {
+          signupHandler(signup, authDispatch, componentsDispatch, event);
+        } else {
+          setSignup((prevState) => ({
+            ...prevState,
+            password: "",
+            confirmPassword: "",
+          }));
+          componentsDispatch({
+            type: "ALERT",
+            payload: {
+              active: true,
+              child: <Alert action="warning" message={validation} />,
+            },
+          });
+        }
+      }}
     >
       <div className="input input__icons input__premium">
         <div className="input__username">
@@ -45,12 +72,28 @@ const SignupModal = () => {
         <div className="input__password">
           <input
             className="input__field--text password"
-            type="text"
+            type={isPasswordVisible ? "text" : "password"}
             value={signup.password}
             placeholder="********"
             onChange={(e) => inputHandler(e, setSignup, "password")}
           />
+          <Icon
+            className={`icon-md ${styles.showPswdBtn}`}
+            icon={isPasswordVisible ? icons.eyeSlash : icons.eye}
+            onClick={() => setIsPasswordVisible((prevState) => !prevState)}
+          />
           <label className="input__label">Password</label>
+        </div>
+
+        <div className="input__password">
+          <input
+            className="input__field--text password"
+            type="password"
+            value={signup.confirmPassword}
+            placeholder="********"
+            onChange={(e) => inputHandler(e, setSignup, "confirmPassword")}
+          />
+          <label className="input__label">Confirm Password</label>
         </div>
       </div>
       <div className={`remember-me__container ${styles.rememberMeContainer}`}>
@@ -63,6 +106,13 @@ const SignupModal = () => {
               className="input__field--checkbox"
               id="remember-me"
               type="checkbox"
+              value={signup.rememberMe}
+              onChange={() =>
+                setSignup((prevState) => ({
+                  ...prevState,
+                  rememberMe: !prevState.rememberMe,
+                }))
+              }
             />
             Remember me!
           </label>

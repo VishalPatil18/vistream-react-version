@@ -32,7 +32,7 @@ const MainVideoCard = ({ video }) => {
   return (
     <article className={styles.card}>
       <div className={styles.thumbnailWrapper}>
-        <Link to={`/${video.youtubeID}`}>
+        <Link to={`/video/${video.youtubeID}`}>
           <img className={styles.thumbnail} src={video.videoThumbnail} />
         </Link>
         <div className={styles.header}>
@@ -104,7 +104,7 @@ const MainVideoCard = ({ video }) => {
       <div className={styles.body}>
         <img src={video.channelThumbnail} className={styles.channelThumbnail} />
         <div className={styles.bodyContent}>
-          <Link to={`/${video.youtubeID}`}>
+          <Link to={`/video/${video.youtubeID}`}>
             <h4 className={styles.title} title={video.title}>
               {video.title}
             </h4>

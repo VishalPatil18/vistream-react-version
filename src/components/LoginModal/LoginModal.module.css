@@ -23,3 +23,11 @@ main > footer,
 .rememberMeContainer ~ .modalFooter {
   padding: var(--space-xs) 0;
 }
+
+.showPswdBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}

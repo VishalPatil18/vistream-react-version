@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Icon } from "@iconify/react";
 import {
   useAuth,
   useComponents,
@@ -7,15 +8,24 @@ import {
   usePlaylists,
   useWatchlater,
 } from "../../context";
-import { guestUser, inputHandler, loginHandler } from "../../utilities";
-import { SignupModal } from "../../components";
+import {
+  guestUser,
+  icons,
+  inputHandler,
+  loginHandler,
+  validateLoginUser,
+} from "../../utilities";
+import { Alert, SignupModal } from "../../components";
 import styles from "./LoginModal.module.css";
 
 const LoginModal = () => {
   const [login, setLogin] = useState({
     email: "",
     password: "",
+    rememberMe: false,
   });
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const { authDispatch } = useAuth();
   const { componentsDispatch } = useComponents();
@@ -26,18 +36,34 @@ const LoginModal = () => {
 
   return (
     <form
-      onSubmit={(event) =>
-        loginHandler(
-          login,
-          authDispatch,
-          componentsDispatch,
-          historyDispatch,
-          likesDispatch,
-          playlistsDispatch,
-          watchlaterDispatch,
-          event
-        )
-      }
+      onSubmit={(event) => {
+        event.preventDefault();
+        const validation = validateLoginUser(login);
+        if (validation === true) {
+          loginHandler(
+            login,
+            authDispatch,
+            componentsDispatch,
+            historyDispatch,
+            likesDispatch,
+            playlistsDispatch,
+            watchlaterDispatch,
+            event
+          );
+        } else {
+          setLogin((prevState) => ({
+            ...prevState,
+            password: "",
+          }));
+          componentsDispatch({
+            type: "ALERT",
+            payload: {
+              active: true,
+              child: <Alert action="warning" message={validation} />,
+            },
+          });
+        }
+      }}
     >
       <div className="input input__icons input__premium">
         <div className="input__email">
@@ -54,10 +80,15 @@ const LoginModal = () => {
         <div className="input__password">
           <input
             className="input__field--text password"
-            type="text"
+            type={isPasswordVisible ? "text" : "password"}
             value={login.password}
             placeholder="********"
             onChange={(e) => inputHandler(e, setLogin, "password")}
+          />
+          <Icon
+            className={`icon-md ${styles.showPswdBtn}`}
+            icon={isPasswordVisible ? icons.eyeSlash : icons.eye}
+            onClick={() => setIsPasswordVisible((prevState) => !prevState)}
           />
           <label className="input__label">Password</label>
         </div>
@@ -72,13 +103,17 @@ const LoginModal = () => {
               className="input__field--checkbox"
               id="remember-me"
               type="checkbox"
+              value={login.rememberMe}
+              onChange={() =>
+                setLogin((prevState) => ({
+                  ...prevState,
+                  rememberMe: !prevState.rememberMe,
+                }))
+              }
             />
             Remember me!
           </label>
         </div>
-        <button className={`cp ${styles.forgetPassword}`}>
-          Forget Password?
-        </button>
       </div>
       <footer className={`modal__footer ${styles.modalFooter}`}>
         <button

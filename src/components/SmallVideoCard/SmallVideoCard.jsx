@@ -43,7 +43,7 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
 
   return (
     <article className={styles.card}>
-      <Link to={`/${video.youtubeID}`} className={styles.imageWrapper}>
+      <Link to={`/video/${video.youtubeID}`} className={styles.imageWrapper}>
         <img src={video.videoThumbnail} className={styles.image} />
         <small className={styles.videoLength}>{video.videoLength}</small>
       </Link>
@@ -157,7 +157,7 @@ const SmallVideoCard = ({ video, page = "", playlistID = "" }) => {
           </div>
         ) : null}
       </div>
-      <Link to={`/${video.youtubeID}`} className={styles.body}>
+      <Link to={`/video/${video.youtubeID}`} className={styles.body}>
         <h3 className={`h-6 ${styles.title}`} title={video.title}>
           {video.title}
         </h3>

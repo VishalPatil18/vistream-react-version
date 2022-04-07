@@ -9,6 +9,8 @@ const icons = {
   delete: "icomoon-free:bin",
   editPlaylist: "mdi:playlist-edit",
   explore: "ic:baseline-explore",
+  eye: "fa6-solid:eye",
+  eyeSlash: "fa6-solid:eye-slash",
   filter: "ant-design:control-filled",
   heart: "fa-regular:heart",
   heartFilled: "fa:heart",

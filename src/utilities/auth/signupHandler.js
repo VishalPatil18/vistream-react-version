@@ -26,8 +26,10 @@ const signupHandler = async (
     });
     const response = await signupService(signup);
     if (response.status === 201) {
-      localStorage.setItem("token", response.data.encodedToken);
-      localStorage.setItem("user", JSON.stringify(response.data.createdUser));
+      if (signup.rememberMe) {
+        localStorage.setItem("token", response.data.encodedToken);
+        localStorage.setItem("user", JSON.stringify(response.data.createdUser));
+      }
       authDispatch({
         type: "SIGNUP",
         payload: {
