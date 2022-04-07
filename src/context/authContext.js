@@ -13,17 +13,18 @@ const AuthProvider = ({ children }) => {
     try {
       const currentUser = localStorage.getItem("user");
       const currentToken = localStorage.getItem("token");
-      authDispatch({
-        type: "INITIAL_CHECK",
-        payload: {
-          token: currentToken,
-          user: JSON.parse(currentUser),
-        },
-      });
+      if (currentUser && currentToken)
+        authDispatch({
+          type: "INITIAL_CHECK",
+          payload: {
+            token: currentToken,
+            user: JSON.parse(currentUser),
+          },
+        });
     } catch (error) {
       console.log("ERROR: ", error);
     }
-  }, [authState.token]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ authState, authDispatch }}>

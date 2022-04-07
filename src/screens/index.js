@@ -1,3 +1,4 @@
+export { Error404 } from "./Error404";
 export { Explore } from "./Explore";
 export { History } from "./History";
 export { Home } from "./Home";

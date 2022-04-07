@@ -11,7 +11,7 @@
   text-align: left;
   top: var(--space-md);
   width: min(400px, 90%);
-  z-index: 99;
+  z-index: 99999;
 }
 
 .closeIcon {

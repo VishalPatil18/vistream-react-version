@@ -36,8 +36,10 @@ const loginHandler = async (
   try {
     const response = await loginService(login);
     if (response.status === 200) {
-      localStorage.setItem("token", response.data.encodedToken);
-      localStorage.setItem("user", JSON.stringify(response.data.foundUser));
+      if (login.rememberMe) {
+        localStorage.setItem("token", response.data.encodedToken);
+        localStorage.setItem("user", JSON.stringify(response.data.foundUser));
+      }
       authDispatch({
         type: "LOGIN",
         payload: {

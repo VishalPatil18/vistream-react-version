@@ -1,0 +1,32 @@
+.error {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.img {
+  border-radius: var(--br-md);
+  margin: var(--space-md);
+  width: 100%;
+}
+
+.errorHeading {
+  text-align: center;
+}
+
+.errorMsg {
+  color: var(--grey-5);
+  font-size: var(--fs-md-2);
+  font-weight: var(--fw-5);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.btn {
+  margin-bottom: var(--space-md);
+}
