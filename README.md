@@ -64,9 +64,6 @@
 ## **🎙 About The Project**
 
 VIStream is a video library for all kind of videos related to video games. One can view videos from video listing page, explore page. One can also like videos, create playlists, add/remove videos from playlists, delete playlists, view their watch history, clear all watch history, and create new account.
-<p align="center">
-  <!-- <img width="100%" src="https://raw.githubusercontent.com/VishalPatil18/VISKart/main/assets/walkthrough.gif" alt="viskart walkthrough"/> -->
-</p>
 
 <br />
 
@@ -75,21 +72,43 @@ VIStream is a video library for all kind of videos related to video games. One c
 ## **🎖 Key Features**
 - Auth Management
    - Login
-   - Signup 
+   - Signup
+   - Logout
 - Like Management
    - Like Video
    - Unlike Video
    - View all liked videos
+   - Clear all liked videos
 - Playlist Managment
    - create playlists, 
    - add/remove videos from playlists,
    - delete playlists
    - View all playlists
    - View single playlist
+   - Clear Playlist
 - History Management
    - View watch history
    - Clear watch history
    - Remove single video from history
+   - Remove all videos from history
+- Watchlater Management
+   - Add Videos to Watchlater
+   - Remove Videos from Watchlater
+   - Remove all videos from Watchlater
+- Filter Management
+   - Sort by Views
+   - Sort by Likes
+   - Sort by Oldest First
+   - Sort by Newest First
+   - Category filters
+- Search Video
+- User Profile Page
+- Trending Videos
+- Single Video Page
+- Loaders and Alerts
+- 404 Page
+- Completely Responsive
+- Input Validation on Login and Signup
 
 <br />
 
@@ -98,6 +117,7 @@ VIStream is a video library for all kind of videos related to video games. One c
 ## **⚙️ Built With**
 - React
 - React Router
+- React Context API
 - [Mockbee](https://mockbee.netlify.app/) - for mock backend
 - [VISPA-UI](https://vispaui-docs-development.netlify.app/)
 - ICONIFY
@@ -167,6 +187,11 @@ Special Thanks to some amazing people who helped reviewing VIStream.
     <td><a href="https://github.com/AnkurChunekar">Ankur Chunekar</a></td>
     <td><a href="https://github.com/Kevin-Solomon">Kevin Solomon</a></td>
     <td><a href="https://github.com/mohammed-sas">Mohammed</a></td>    
+  </tr>
+  <tr>
+    <td><a href="https://github.com/Jay-Gadhiya">Jay Gadhiya</a></td>
+    <td><a href="https://github.com/RahullRawat">Rahul Rawat</a></td>  
+    <td><a href="https://github.com/Aazam10">Aazam</a></td>  
   </tr>
 </table>
 
